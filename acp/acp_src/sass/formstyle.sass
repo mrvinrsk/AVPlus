@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap')
+
+form
+  position: absolute
+  transform: translate(-50%, -50%)
+  top: 50%
+  left: 50%
+
+  background-color: #EEE
+  color: #343434
+
+  border-radius: 2px
+  border: 1px solid #343434
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, .15)
+
+  padding: 3rem 5rem
+
+  min-width: 50vw
+  max-width: 75vw
+
+  h1
+    font-family: 'Open Sans', serif
+    font-size: 22px
+
+  input[type=text], input[type=email], input[type=password], input[type=number], textarea, select, input[type=date]
+    font-family: 'Open Sans', serif
+    display: block
+    padding: .5rem 1.25rem
+    color: #343434
+    border: 1px solid #343434
+    border-radius: 2px
+    width: 100%
+    margin: 1rem 0
+    outline: none
+    font-size: 14px
+
+    transition-duration: .25s
+
+    &:focus
+      border-left: inset 7.5px #0e5cff
+
+    &:invalid
+      border: 1px solid #BC134E
+
+  input[type=submit]
+    padding: .25rem .8rem
+    border-radius: 2px
+    border: none
+    border: 1px solid #343434
+
+  textarea
+    resize: vertical
+
+    min-width: 100%
+    max-width: 100%
+
+    min-height: 25vh
+    max-height: 65vh

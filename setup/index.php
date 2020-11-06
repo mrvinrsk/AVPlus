@@ -81,6 +81,10 @@ create table if not exists Rang
 );
 ");
 
+// STANDARD RÄNGE HINZUFÜGEN (INSERT)
+
+
+
 header_remove();
 header('Location: ./success/');
 ?>
