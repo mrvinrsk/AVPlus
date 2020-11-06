@@ -18,22 +18,32 @@ $sql = new MySQLAPI($pdo);
 </head>
 <body>
 
-<input type="text" id="searchbar" placeholder="Suche nach Kunden..." oninput="search(this.value)">
+<input type="text" id="searchbar" placeholder="Suche nach Kunden...">
 
 
 <script>
-    search('');
+    $(document).ready(function () {
+        $('#searchbar').on('input', function () {
+            var name = $('#searchbar').val();
 
-    function search(str) {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("user-wrapper").innerHTML = this.responseText;
-            }
-        };
-        xmlhttp.open("GET", "getusers.php?q=" + str, true);
-        xmlhttp.send();
-    }
+            $.ajax({
+                //AJAX type is "Post".
+                type: "POST",
+                //Data will be sent to "ajax.php".
+                url: "getusers.php",
+                //Data, that will be sent to "ajax.php".
+                data: {
+                    //Assigning value of "name" into "search" variable.
+                    q: name
+                },
+                //If result found, this funtion will be called.
+                success: function (html) {
+                    //Assigning result to "display" div in "search.php" file.
+                    $("#user-wrapper").html(html).show();
+                }
+            });
+        });
+    });
 </script>
 
 <table id="user-wrapper">
