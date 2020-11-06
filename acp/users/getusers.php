@@ -20,7 +20,7 @@ if (isset($_POST['q'])) {
     $filter = $_POST['q'];
 
     if ($filter != "") {
-        $query .= " AND (Kunde.Kundennummer = '$filter' OR Vorname LIKE '%$filter%' OR Nachname LIKE '%$filter%' OR Mail LIKE '%$filter%' OR Registrierung LIKE '%$filter%')";
+        $query .= " AND (Kunde.Kundennummer = '$filter' OR Vorname LIKE '%$filter%' OR Nachname LIKE '%$filter%' OR Mail LIKE '%$filter%' OR Registrierung LIKE '%$filter%' OR Rang.Bezeichnung LIKE '%$filter%')";
     }
 }
 
