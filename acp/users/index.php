@@ -14,6 +14,7 @@ $sql = new MySQLAPI($pdo);
     <title>AVPlus | Nutzerverwaltung</title>
 
     <link rel="stylesheet" href="user-wrapper.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 </head>
 <body>
 
@@ -35,8 +36,6 @@ $sql = new MySQLAPI($pdo);
     }
 </script>
 
-
-<p id="query"></p>
 <table id="user-wrapper">
 
 </table>

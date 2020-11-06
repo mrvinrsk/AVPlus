@@ -19,13 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="24d9eaf7-4bb7-46a0-b3c6-e77997e721c2" name="Default Changelist" comment="- finished user creation in acp.">
-      <change afterPath="$PROJECT_DIR$/acp/users/edit/index.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/acp/users/getusers.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/acp/users/user-wrapper.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/acp/users/user-wrapper.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/acp/users/user-wrapper.sass" afterDir="false" />
+    <list default="true" id="24d9eaf7-4bb7-46a0-b3c6-e77997e721c2" name="Default Changelist" comment="- started to add ajax searching.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/acp/users/getusers.php" beforeDir="false" afterPath="$PROJECT_DIR$/acp/users/getusers.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/acp/users/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/acp/users/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -69,7 +65,7 @@
       <updated>1604602455412</updated>
       <workItem from="1604602456722" duration="15268000" />
       <workItem from="1604646739287" duration="8633000" />
-      <workItem from="1604660753278" duration="5562000" />
+      <workItem from="1604660753278" duration="6379000" />
     </task>
     <task id="LOCAL-00001" summary="- added Article and User creation forms.">
       <created>1604655967721</created>
@@ -85,7 +81,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604664411664</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="- started to add ajax searching.">
+      <created>1604674176699</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1604674176699</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -107,7 +110,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="- added Article and User creation forms." />
     <MESSAGE value="- finished user creation in acp." />
-    <option name="LAST_COMMIT_MESSAGE" value="- finished user creation in acp." />
+    <MESSAGE value="- started to add ajax searching." />
+    <option name="LAST_COMMIT_MESSAGE" value="- started to add ajax searching." />
   </component>
   <component name="WindowStateProjectService">
     <state x="336" y="366" key="#SQL_Dialects" timestamp="1604610250722">
@@ -155,10 +159,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="461" y="170" width="1235" height="710" key="SettingsEditor/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1604606057958" />
-    <state x="320" y="174" key="Vcs.Push.Dialog.v2" timestamp="1604664415396">
+    <state x="320" y="174" key="Vcs.Push.Dialog.v2" timestamp="1604674180164">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
-    <state x="320" y="174" key="Vcs.Push.Dialog.v2/0.23.1440.822@0.23.1440.822" timestamp="1604664415396" />
+    <state x="320" y="174" key="Vcs.Push.Dialog.v2/0.23.1440.822@0.23.1440.822" timestamp="1604674180164" />
     <state x="883" y="238" width="965" height="712" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1604606229097">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>

@@ -16,16 +16,23 @@ echo '</tr>';
 
 $query = "SELECT Kunde.Kundennummer, Vorname, Nachname, Registrierung, Mail, Rang.Bezeichnung AS Rang FROM Kunde, Login, Rang WHERE Kunde.Kundennummer = Login.Kundennummer AND Kunde.Rang = Rang.RangID";
 
-if (isset($_REQUEST['q'])) {
-    $filter = $_REQUEST['search'];
+if (isset($_GET['q'])) {
+    $filter = $_GET['q'];
 
     if ($filter != "") {
-        $query .= "WHERE Kunde.Kundennummer = '$filter' OR Vorname LIKE '%$filter%' OR Nachname LIKE '%$filter%' OR Mail LIKE '%$filter%' OR Registrierung LIKE '%$filter%'";
+        $query .= "AND (Kunde.Kundennummer = '$filter' OR Vorname LIKE '%$filter%' OR Nachname LIKE '%$filter%' OR Mail LIKE '%$filter%' OR Registrierung LIKE '%$filter%')";
     }
 }
 
 $query .= ";";
 
+if (isset($_GET['q'])) {
+    echo "Suche angegeben.";
+} else {
+    echo "Suche nicht angegeben!";
+}
+
+echo "Suche: '" . $filter . "'</br></br></br></br></br>";
 echo $query;
 
 $dataStatement = $pdo->prepare($query);
