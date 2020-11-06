@@ -20,7 +20,7 @@ $sql = new MySQLAPI($pdo);
 <form method="post">
     <h1>Artikel erstellen</h1>
 
-    <input type="text" name="title" required placeholder="Produkttitel" id="title" oninput="update()">
+    <input type="text" name="title" required placeholder="Produkttitel" id="title" oninput="update()" active>
     <textarea type="text" name="description" placeholder="Beschreibe das Produkt..." id="description"></textarea>
 
     <script>

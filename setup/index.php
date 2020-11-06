@@ -5,14 +5,53 @@ $sql = new MySQLAPI($pdo);
 
 
 $sql->execute("
+create table if not exists Rang
+(
+	RangID int auto_increment,
+	Bezeichnung varchar(24) not null,
+	PermissionLevel int not null,
+	IsDefault boolean not null,
+	constraint Rang_pk
+		primary key (RangID)
+);
+");
+
+try {
+    if ($sql->rows("SELECT * FROM Rang WHERE Bezeichnung LIKE 'Kunde';") == 0) {
+        $sql->execute("INSERT INTO Rang(Bezeichnung, PermissionLevel, IsDefault) VALUES('Kunde', 1, true);");
+    }
+} catch (Exception $e) {
+
+}
+
+try {
+    if ($sql->rows("SELECT * FROM Rang WHERE Bezeichnung LIKE 'Moderator';") == 0) {
+        $sql->execute("INSERT INTO Rang(Bezeichnung, PermissionLevel, IsDefault) VALUES('Moderator', 10, false);");
+    }
+} catch (Exception $e) {
+
+}
+
+try {
+    if ($sql->rows("SELECT * FROM Rang WHERE Bezeichnung LIKE 'Administrator';") == 0) {
+        $sql->execute("INSERT INTO Rang(Bezeichnung, PermissionLevel, IsDefault) VALUES('Administrator', 100, false);");
+    }
+} catch (Exception $e) {
+
+}
+
+
+$sql->execute("
 create table if not exists Kunde
 (
 	Kundennummer int auto_increment primary key,
 	Vorname varchar(32) not null,
 	Nachname varchar(32) not null,
 	Geburtstag date not null,
-	Registrierung datetime not null,
-	Rang int not null
+	Registrierung date not null,
+	Rang int not null,
+	constraint Kunde_Rang_RangID_fk
+		foreign key (Rang) references Rang (RangID) on update cascade on delete restrict
 );
 ");
 
@@ -33,7 +72,7 @@ create table if not exists Login
 (
 	Kundennummer int not null primary key,
 	Mail varchar(128) not null,
-	Passwort varchar(128) not null,
+	Passwort varchar(512) not null,
 	constraint Login_Kunde_Kundennummer_fk
 		foreign key (Kundennummer) references Kunde (Kundennummer)
 			on update cascade on delete cascade
@@ -69,20 +108,6 @@ create table if not exists Artikel
 			on update cascade on delete cascade
 );
 ");
-
-$sql->execute("
-create table if not exists Rang
-(
-	RangID int auto_increment,
-	Bezeichnung varchar(24) not null,
-	IsDefault boolean not null,
-	constraint Rang_pk
-		primary key (RangID)
-);
-");
-
-// STANDARD RÄNGE HINZUFÜGEN (INSERT)
-
 
 
 header_remove();
