@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap");
+#user-wrapper {
+  max-width: 90vw;
+  position: relative;
+  transform: translate(-50%, 0%);
+  left: 50%;
+  margin-top: 3.75vh;
+  border: 1px solid #bbbbbb;
+  border-radius: 3px;
+  border-collapse: collapse;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+  padding: 1.5vh 2.5vw;
+  font-family: "Open Sans", serif;
+  text-align: left;
+}
+#user-wrapper a {
+  color: #0d577f;
+  transition-duration: 0.25s;
+}
+#user-wrapper a:hover {
+  color: #17a6f5;
+}
+#user-wrapper #seperator {
+  border-left: 1px solid #999999;
+}
+#user-wrapper th {
+  font-weight: 600;
+  font-size: 16px;
+}
+#user-wrapper td {
+  font-weight: 400;
+  font-size: 14px;
+  border-bottom: 1px solid #999999;
+}
+#user-wrapper #header-line {
+  background-color: #999999;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+}
+#user-wrapper th, #user-wrapper td {
+  padding: 10px;
+}
+
+/*# sourceMappingURL=user-wrapper.css.map */

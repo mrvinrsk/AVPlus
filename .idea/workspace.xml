@@ -19,12 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="24d9eaf7-4bb7-46a0-b3c6-e77997e721c2" name="Default Changelist" comment="- added Article and User creation forms.">
+    <list default="true" id="24d9eaf7-4bb7-46a0-b3c6-e77997e721c2" name="Default Changelist" comment="- finished user creation in acp.">
+      <change afterPath="$PROJECT_DIR$/acp/users/edit/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/acp/users/getusers.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/acp/users/user-wrapper.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/acp/users/user-wrapper.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/acp/users/user-wrapper.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/acp/articles/add/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/acp/articles/add/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/acp/users/add/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/acp/users/add/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/setup/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup/success/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/setup/success/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/acp/users/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/acp/users/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +69,7 @@
       <updated>1604602455412</updated>
       <workItem from="1604602456722" duration="15268000" />
       <workItem from="1604646739287" duration="8633000" />
-      <workItem from="1604660753278" duration="2409000" />
+      <workItem from="1604660753278" duration="5562000" />
     </task>
     <task id="LOCAL-00001" summary="- added Article and User creation forms.">
       <created>1604655967721</created>
@@ -76,7 +78,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604655967721</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="- finished user creation in acp.">
+      <created>1604664411663</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1604664411664</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -97,7 +106,8 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="- added Article and User creation forms." />
-    <option name="LAST_COMMIT_MESSAGE" value="- added Article and User creation forms." />
+    <MESSAGE value="- finished user creation in acp." />
+    <option name="LAST_COMMIT_MESSAGE" value="- finished user creation in acp." />
   </component>
   <component name="WindowStateProjectService">
     <state x="336" y="366" key="#SQL_Dialects" timestamp="1604610250722">
@@ -112,6 +122,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="414" y="167" width="1193" height="683" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1604603857756" />
+    <state x="425" y="243" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604665413078">
+      <screen x="0" y="23" width="1440" height="822" />
+    </state>
+    <state x="425" y="243" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.822@0.23.1440.822" timestamp="1604665413078" />
     <state x="372" y="219" key="EditFileWatcherDialog" timestamp="1604649162539">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
@@ -132,19 +146,19 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1293" height="285" key="GridCell.Tab.0.right/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1604613094148" />
-    <state x="596" y="374" key="NewPhpFileDialog" timestamp="1604647033724">
+    <state x="596" y="374" key="NewPhpFileDialog" timestamp="1604673298390">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
     <state x="794" y="448" key="NewPhpFileDialog/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1604612160142" />
-    <state x="596" y="374" key="NewPhpFileDialog/0.23.1440.822@0.23.1440.822" timestamp="1604647033724" />
+    <state x="596" y="374" key="NewPhpFileDialog/0.23.1440.822@0.23.1440.822" timestamp="1604673298390" />
     <state x="461" y="170" width="1235" height="710" key="SettingsEditor" timestamp="1604606057958">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="461" y="170" width="1235" height="710" key="SettingsEditor/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1604606057958" />
-    <state x="320" y="174" key="Vcs.Push.Dialog.v2" timestamp="1604655972046">
+    <state x="320" y="174" key="Vcs.Push.Dialog.v2" timestamp="1604664415396">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
-    <state x="320" y="174" key="Vcs.Push.Dialog.v2/0.23.1440.822@0.23.1440.822" timestamp="1604655972046" />
+    <state x="320" y="174" key="Vcs.Push.Dialog.v2/0.23.1440.822@0.23.1440.822" timestamp="1604664415396" />
     <state x="883" y="238" width="965" height="712" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1604606229097">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
