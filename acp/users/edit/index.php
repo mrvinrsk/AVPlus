@@ -13,7 +13,7 @@ $user = $sql->result("SELECT * FROM Kunde, Login WHERE Kunde.Kundennummer = Logi
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>AVPlus | Kunde verwalten: <?php echo $user['Vorname'] . " " . $user['Nachname']; ?></title>
+    <title>AVPlus | Nutzerverwaltung: <?php echo $user['Vorname'] . " " . $user['Nachname']; ?></title>
 
     <link rel="stylesheet" href="../user-wrapper.css">
 </head>

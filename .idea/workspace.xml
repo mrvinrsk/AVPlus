@@ -20,9 +20,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="24d9eaf7-4bb7-46a0-b3c6-e77997e721c2" name="Default Changelist" comment="Initial commit">
+      <change afterPath="$PROJECT_DIR$/acp/articles/categories/add/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/acp/articles/categories/getcategories.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/acp/articles/categories/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/acp/articles/getarticles.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/acp/acp_src/sass/formstyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/acp/acp_src/sass/formstyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/acp/acp_src/sass/formstyle.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/acp/acp_src/sass/formstyle.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/acp/acp_src/sass/formstyle.sass" beforeDir="false" afterPath="$PROJECT_DIR$/acp/acp_src/sass/formstyle.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/acp/articles/add/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/acp/articles/add/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/acp/articles/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/acp/articles/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/acp/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/acp/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/acp/users/add/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/acp/users/add/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/acp/users/edit/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/acp/users/edit/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/acp/users/getusers.php" beforeDir="false" afterPath="$PROJECT_DIR$/acp/users/getusers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/acp/users/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/acp/users/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/acp/users/user-wrapper.css" beforeDir="false" afterPath="$PROJECT_DIR$/acp/users/user-wrapper.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/acp/users/user-wrapper.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/acp/users/user-wrapper.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/acp/users/user-wrapper.sass" beforeDir="false" afterPath="$PROJECT_DIR$/acp/users/user-wrapper.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/sql/mysql_api.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/sql/mysql_api.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/sql/sql_account.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/sql/sql_account.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/debug/SQL/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/debug/SQL/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/debug/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/debug/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/setup/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup/success/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/setup/success/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +88,7 @@
       <workItem from="1604602456722" duration="15268000" />
       <workItem from="1604646739287" duration="8633000" />
       <workItem from="1604660753278" duration="9246000" />
+      <workItem from="1604911296121" duration="3104000" />
     </task>
     <task id="LOCAL-00001" summary="- added Article and User creation forms.">
       <created>1604655967721</created>
@@ -176,9 +199,13 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="883" y="238" width="965" height="712" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1604606229097" />
-    <state x="385" y="169" width="670" height="676" key="search.everywhere.popup" timestamp="1604685731504">
+    <state x="518" y="355" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604911125959">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
-    <state x="385" y="169" width="670" height="676" key="search.everywhere.popup/0.23.1440.822@0.23.1440.822" timestamp="1604685731504" />
+    <state x="518" y="355" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.822@0.23.1440.822" timestamp="1604911125959" />
+    <state x="385" y="169" width="670" height="676" key="search.everywhere.popup" timestamp="1604911145487">
+      <screen x="0" y="23" width="1440" height="822" />
+    </state>
+    <state x="385" y="169" width="670" height="676" key="search.everywhere.popup/0.23.1440.822@0.23.1440.822" timestamp="1604911145487" />
   </component>
 </project>

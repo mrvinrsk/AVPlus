@@ -18,32 +18,54 @@ $sql = new MySQLAPI($pdo);
 </head>
 <body>
 
-<input type="text" id="searchbar" placeholder="Suche nach Kunden...">
+<div id="searchcontainer">
+    <input type="text" id="searchbar" placeholder="Suche nach ID, Name, Mail, Rang, Registrierung...">
+    <select id="searchfilter">
+        <option value="id">ID</option>
+        <option value="name">Name</option>
+        <option value="mail">Mail</option>
+        <option value="rang">Rang</option>
+        <option value="registerdate">Registrierungsdatum</option>
+    </select>
+</div>
 
 
 <script>
+    updateList("");
+
     $(document).ready(function () {
         $('#searchbar').on('input', function () {
             var name = $('#searchbar').val();
 
-            $.ajax({
-                //AJAX type is "Post".
-                type: "POST",
-                //Data will be sent to "ajax.php".
-                url: "getusers.php",
-                //Data, that will be sent to "ajax.php".
-                data: {
-                    //Assigning value of "name" into "search" variable.
-                    q: name
-                },
-                //If result found, this funtion will be called.
-                success: function (html) {
-                    //Assigning result to "display" div in "search.php" file.
-                    $("#user-wrapper").html(html).show();
-                }
-            });
+            updateList(name);
+        });
+
+        $('#searchfilter').on('change', function () {
+            var name = $('#searchbar').val();
+
+            updateList(name);
         });
     });
+
+    function updateList(str) {
+        $.ajax({
+            //AJAX type is "Post".
+            type: "POST",
+            //Data will be sent to "ajax.php".
+            url: "getusers.php",
+            //Data, that will be sent to "ajax.php".
+            data: {
+                //Assigning value of "name" into "search" variable.
+                q: str,
+                f: $('#searchfilter').val()
+            },
+            //If result found, this funtion will be called.
+            success: function (html) {
+                //Assigning result to "display" div in "search.php" file.
+                $("#user-wrapper").html(html).show();
+            }
+        });
+    }
 </script>
 
 <table id="user-wrapper">

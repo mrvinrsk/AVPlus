@@ -17,11 +17,34 @@ echo '</tr>';
 $query = "SELECT Kunde.Kundennummer, Vorname, Nachname, Registrierung, Mail, Rang.Bezeichnung AS Rang FROM Kunde, Login, Rang WHERE Kunde.Kundennummer = Login.Kundennummer AND Kunde.Rang = Rang.RangID";
 
 if (isset($_POST['q'])) {
-    $filter = $_POST['q'];
+    $search = $_POST['q'];
+    $filter = $_POST['f'];
 
-    if ($filter != "") {
-        $query .= " AND (Kunde.Kundennummer = '$filter' OR Vorname LIKE '%$filter%' OR Nachname LIKE '%$filter%' OR Mail LIKE '%$filter%' OR Registrierung LIKE '%$filter%' OR Rang.Bezeichnung LIKE '%$filter%')";
+    $query .= " AND (";
+
+    switch (strtolower($filter)) {
+        case 'id':
+            $query .= "Login.Kundennummer LIKE '%$search%'";
+            break;
+
+        case 'name':
+            $query .= "Vorname LIKE '%$search%' OR Nachname LIKE '%$search%' OR CONCAT(Vorname, ' ', Nachname) LIKE '%$search%'";
+            break;
+
+        case 'mail':
+            $query .= "Mail LIKE '%$search%'";
+            break;
+
+        case 'rang':
+            $query .= "Rang.Bezeichnung LIKE '%$search%'";
+            break;
+
+        case 'registerdate':
+            $query .= "Registrierung LIKE '%$search%'";
+            break;
     }
+
+    $query .= ")";
 }
 
 $query .= ";";
