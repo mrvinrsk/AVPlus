@@ -20,11 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="24d9eaf7-4bb7-46a0-b3c6-e77997e721c2" name="Default Changelist" comment="Initial commit">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/acp/acp_src/sass/formstyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/acp/acp_src/sass/formstyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/acp/users/getusers.php" beforeDir="false" afterPath="$PROJECT_DIR$/acp/users/getusers.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/acp/users/user-wrapper.css" beforeDir="false" afterPath="$PROJECT_DIR$/acp/users/user-wrapper.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/acp/users/user-wrapper.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/acp/users/user-wrapper.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/acp/users/user-wrapper.sass" beforeDir="false" afterPath="$PROJECT_DIR$/acp/users/user-wrapper.sass" afterDir="false" />
