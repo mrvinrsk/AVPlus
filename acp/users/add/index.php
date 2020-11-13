@@ -65,8 +65,6 @@ if (isset($_POST['create'])) {
 
                 <?php
             }
-        } else {
-            echo "not executed";
         }
         ?>
     </select>

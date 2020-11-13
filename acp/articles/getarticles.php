@@ -14,14 +14,39 @@ echo '<th>Verkäufer</th>';
 echo '<th></th>';
 echo '</tr>';
 
-$query = "SELECT Artikel.Artikelnummer, Kunde.Kundennummer, Kunde.Vorname, Kunde.Nachname, Artikel.Titel, Artikel.Beschreibung, Artikel.Preis, Kategorie.Bezeichnung FROM Kunde, Artikel, Artikelkategorie WHERE Kunde.Kundennummer = Artikel.Verkaeufer AND Artikel.Kategorie = Artikelkategorie.KategorieID";
+echo '<tr id="add"><td colspan="7">Füge <a href="add/">hier</a> einen neuen Artikel hinzu.</td></tr>';
+
+$query = "SELECT Artikel.Artikelnummer, Artikel.Titel, Artikel.Beschreibung, Artikel.Preis, Artikel.Kategorie, Kunde.Vorname, Kunde.Nachname, Kunde.Kundennummer, Artikelkategorie.Bezeichnung FROM Artikel, Kunde, Artikelkategorie WHERE Kunde.Kundennummer = Artikel.Verkaeufer AND Artikel.Kategorie = Artikelkategorie.KategorieID";
 
 if (isset($_POST['q'])) {
-    $filter = $_POST['q'];
+    $search = $_POST['q'];
+    $filter = $_POST['f'];
 
-    if ($filter != "") {
-        $query .= " AND (Kunde.Kundennummer = '$filter' OR Vorname LIKE '%$filter%' OR Nachname LIKE '%$filter%' OR Mail LIKE '%$filter%' OR Registrierung LIKE '%$filter%' OR Rang.Bezeichnung LIKE '%$filter%')";
+    $query .= " AND (";
+
+    switch (strtolower($filter)) {
+        case 'id':
+            $query .= "Artikel.Artikelnummer LIKE '%$search%'";
+            break;
+
+        case 'title':
+            $query .= "Artikel.Titel LIKE '%$search%'";
+            break;
+
+        case 'price':
+            $query .= "Artikel.Preis LIKE '%$search%'";
+            break;
+
+        case 'category':
+            $query .= "Artikelkategorie.Bezeichnung LIKE '%$search%'";
+            break;
+
+        case 'seller':
+            $query .= "Kunde.Vorname LIKE '%$search%' OR Kunde.Nachname LIKE '%$search%' OR CONCAT(Kunde.Vorname, ' ', Kunde.Nachname) LIKE '%$search%'";
+            break;
     }
+
+    $query .= ")";
 }
 
 $query .= ";";
@@ -29,15 +54,21 @@ $query .= ";";
 $dataStatement = $pdo->prepare($query);
 
 if ($dataStatement->execute()) {
-    while ($user = $dataStatement->fetch()) {
+    while ($article = $dataStatement->fetch()) {
+        $beschreibung = $article['Beschreibung'];
+
+        if (strlen($beschreibung) > 50) {
+            $beschreibung = substr($beschreibung, 0, 50) . " [...]";
+        }
+
         echo "<tr>";
-        echo "<td>" . $user['Artikelnummer'] . "</td>";
-        echo "<td>" . $user['Titel'] . "</td>";
-        echo "<td>" . $user['Bezeichnung'] . "</td>";
-        echo "<td>" . $user['Beschreibung'] . "</td>";
-        echo "<td>" . $user['Preis'] . "</td>";
-        echo "<td>" . $user['Vorname'] . " " . $user['Nachname'] . "(" . $user['Kundennummer'] . ")</td>";
-        echo "<td id='seperator'><a href='edit/index.php?id=" . $user['Artikelnummer'] . "'>Verwalten</a></td>";
+        echo "<td>" . $article['Artikelnummer'] . "</td>";
+        echo "<td>" . $article['Titel'] . "</td>";
+        echo "<td>" . $article['Bezeichnung'] . "</td>";
+        echo "<td>" . $beschreibung . "</td>";
+        echo "<td>" . $article['Preis'] . "</td>";
+        echo "<td>" . $article['Vorname'] . " " . $article['Nachname'] . " (" . $article['Kundennummer'] . ")</td>";
+        echo "<td id='seperator'><a href='edit/index.php?id=" . $article['Artikelnummer'] . "'>Verwalten</a></td>";
         echo "</tr>";
     }
 }

@@ -19,8 +19,20 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="24d9eaf7-4bb7-46a0-b3c6-e77997e721c2" name="Default Changelist" comment="Initial commit">
+    <list default="true" id="24d9eaf7-4bb7-46a0-b3c6-e77997e721c2" name="Default Changelist" comment="- fixed css design for searchbar on user site">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/acp/acp_src/sass/formstyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/acp/acp_src/sass/formstyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/acp/acp_src/sass/formstyle.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/acp/acp_src/sass/formstyle.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/acp/acp_src/sass/formstyle.sass" beforeDir="false" afterPath="$PROJECT_DIR$/acp/acp_src/sass/formstyle.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/acp/articles/add/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/acp/articles/add/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/acp/articles/categories/add/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/acp/articles/categories/add/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/acp/articles/categories/getcategories.php" beforeDir="false" afterPath="$PROJECT_DIR$/acp/articles/categories/getcategories.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/acp/articles/categories/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/acp/articles/categories/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/acp/articles/getarticles.php" beforeDir="false" afterPath="$PROJECT_DIR$/acp/articles/getarticles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/acp/articles/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/acp/articles/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/acp/users/add/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/acp/users/add/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/acp/users/getusers.php" beforeDir="false" afterPath="$PROJECT_DIR$/acp/users/getusers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/acp/users/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/acp/users/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/acp/users/user-wrapper.css" beforeDir="false" afterPath="$PROJECT_DIR$/acp/users/user-wrapper.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/acp/users/user-wrapper.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/acp/users/user-wrapper.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/acp/users/user-wrapper.sass" beforeDir="false" afterPath="$PROJECT_DIR$/acp/users/user-wrapper.sass" afterDir="false" />
@@ -98,7 +110,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604675206834</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="- fixed css design for searchbar on user site">
+      <created>1605252396939</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1605252396939</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -122,7 +141,8 @@
     <MESSAGE value="- finished user creation in acp." />
     <MESSAGE value="- started to add ajax searching." />
     <MESSAGE value="- added jquery" />
-    <option name="LAST_COMMIT_MESSAGE" value="- added jquery" />
+    <MESSAGE value="- fixed css design for searchbar on user site" />
+    <option name="LAST_COMMIT_MESSAGE" value="- fixed css design for searchbar on user site" />
   </component>
   <component name="WindowStateProjectService">
     <state x="336" y="366" key="#SQL_Dialects" timestamp="1604610250722">
@@ -171,10 +191,10 @@
     </state>
     <state x="461" y="170" width="1235" height="710" key="SettingsEditor/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1604606057958" />
     <state x="175" y="123" width="1098" height="722" key="SettingsEditor/0.23.1440.822@0.23.1440.822" timestamp="1604683030812" />
-    <state x="320" y="174" key="Vcs.Push.Dialog.v2" timestamp="1604675215353">
+    <state x="320" y="174" key="Vcs.Push.Dialog.v2" timestamp="1605252445593">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
-    <state x="320" y="174" key="Vcs.Push.Dialog.v2/0.23.1440.822@0.23.1440.822" timestamp="1604675215353" />
+    <state x="320" y="174" key="Vcs.Push.Dialog.v2/0.23.1440.822@0.23.1440.822" timestamp="1605252445593" />
     <state x="883" y="238" width="965" height="712" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1604606229097">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -187,5 +207,16 @@
       <screen x="0" y="23" width="1440" height="822" />
     </state>
     <state x="385" y="169" width="670" height="676" key="search.everywhere.popup/0.23.1440.822@0.23.1440.822" timestamp="1604911145487" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/acp/users/getusers.php</url>
+          <line>18</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

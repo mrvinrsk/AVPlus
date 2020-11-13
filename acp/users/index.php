@@ -19,7 +19,7 @@ $sql = new MySQLAPI($pdo);
 <body>
 
 <div id="searchcontainer">
-    <input type="text" id="searchbar" placeholder="Suche nach ID, Name, Mail, Rang, Registrierung...">
+    <input type="text" id="searchbar" placeholder="Suchen...">
     <select id="searchfilter">
         <option value="id">ID</option>
         <option value="name">Name</option>

@@ -18,7 +18,16 @@ $sql = new MySQLAPI($pdo);
 </head>
 <body>
 
-<input type="text" id="searchbar" placeholder="Suche nach ID, Titel, Kategorie, Verkäufer...">
+<div id="searchcontainer">
+    <input type="text" id="searchbar" placeholder="Suchen...">
+    <select id="searchfilter">
+        <option value="id">Artikelnummer</option>
+        <option value="title">Produkttitel</option>
+        <option value="price">Preis</option>
+        <option value="category">Kategorie</option>
+        <option value="seller">Verkäufer</option>
+    </select>
+</div>
 
 
 <script>
@@ -41,12 +50,17 @@ $sql = new MySQLAPI($pdo);
             //Data, that will be sent to "ajax.php".
             data: {
                 //Assigning value of "name" into "search" variable.
-                q: str
+                q: str,
+                f: $('#searchfilter').val()
             },
             //If result found, this funtion will be called.
             success: function (html) {
                 //Assigning result to "display" div in "search.php" file.
+                console.log(html);
                 $("#user-wrapper").html(html).show();
+            },
+            failed: function (e) {
+                console.log(e);
             }
         });
     }

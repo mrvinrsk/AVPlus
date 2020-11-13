@@ -14,7 +14,7 @@ echo '<th>Registrierung</th>';
 echo '<th></th>';
 echo '</tr>';
 
-echo '<tr>Füge <a href="add/">hier</a> einen neuen Kunden hinzu.</tr>';
+echo '<tr id="add"><td colspan="7">Füge <a href="add/">hier</a> einen neuen Kunden hinzu.</td></tr>';
 
 $query = "SELECT Kunde.Kundennummer, Vorname, Nachname, Registrierung, Mail, Rang.Bezeichnung AS Rang FROM Kunde, Login, Rang WHERE Kunde.Kundennummer = Login.Kundennummer AND Kunde.Rang = Rang.RangID";
 
