@@ -15,10 +15,14 @@ $sql = new MySQLAPI($pdo);
 
     <link rel="stylesheet" href="user-wrapper.css">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="../acp_src/js/table_wrapper_scroll.js"></script>
 </head>
 <body>
 
 <div id="searchcontainer">
+
+    <!-- TODO: Make sticky with container -->
+
     <input type="text" id="searchbar" placeholder="Suchen...">
     <select id="searchfilter">
         <option value="id">ID</option>

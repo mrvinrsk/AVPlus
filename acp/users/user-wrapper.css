@@ -1,10 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap");
 * {
   font-family: "Open Sans", serif;
+  padding: 0;
+  margin: 0;
 }
 
 #user-wrapper {
-  max-width: 90vw;
+  width: 90vw;
   position: relative;
   transform: translate(-50%, 0%);
   left: 50%;
@@ -16,6 +18,12 @@
   padding: 1.5vh 2.5vw;
   font-family: "Open Sans", serif;
   text-align: left;
+}
+#user-wrapper tr:nth-child(odd) {
+  background-color: #eee;
+}
+#user-wrapper tr:nth-child(even) {
+  background-color: #fff;
 }
 #user-wrapper a {
   color: #0d577f;
@@ -37,8 +45,8 @@
   border-bottom: 1px solid #999999;
 }
 #user-wrapper #header-line {
-  background-color: #999999;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  background-color: #3f6dca;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.125);
 }
 #user-wrapper th, #user-wrapper td {
   padding: 10px;
@@ -46,6 +54,10 @@
 #user-wrapper #add {
   text-align: center;
   font-size: 18px;
+  background-color: #9bb3e9;
+}
+#user-wrapper #add td {
+  padding: 1.35rem 0;
 }
 #user-wrapper #add a {
   color: #0e5cff;
@@ -53,14 +65,23 @@
   text-decoration: none;
 }
 
+body, html {
+  height: 125vh;
+}
+
 #searchcontainer {
+  z-index: 99;
   text-align: center;
   font-family: "Open Sans", serif;
-  position: relative;
-  transform: translate(-50%, -50%);
+  position: sticky;
+  width: 100%;
   left: 50%;
-  top: 5vh;
+  top: 0;
+  padding: 5vh 0;
   margin-bottom: 7.5vh;
+  background-color: #FFF;
+  border-bottom: 1px solid #888888;
+  transition-duration: 0.25s;
 }
 #searchcontainer #searchbar {
   text-align: left;
