@@ -1,7 +1,5 @@
 <?php
-include_once "../../api/sql/sql_account.php";
-include_once "../../api/sql/mysql_api.php";
-$sql = new MySQLAPI($pdo);
+session_start();
 ?>
 
 <!doctype html>
@@ -11,37 +9,32 @@ $sql = new MySQLAPI($pdo);
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>AVPlus | Nutzerverwaltung</title>
-
-    <link rel="stylesheet" href="user-wrapper.css">
+    <title>AVPlus | Home</title>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
 
 <div id="searchcontainer">
     <input type="text" id="searchbar" placeholder="Suchen...">
     <select id="searchfilter">
-        <option value="id">ID</option>
-        <option value="name">Name</option>
-        <option value="mail">Mail</option>
-        <option value="rang">Rang</option>
-        <option value="registerdate">Registrierungsdatum</option>
+        <option value="title">Produkttitel</option>
+        <option value="category">Kategorie</option>
+        <option value="seller">Verkäufer</option>
     </select>
 </div>
-<script src="../acp_src/js/table_wrapper_scroll.js"></script>
-
 
 <script>
+    /*var url_string = window.location.href; //window.location.href
+    var url = new URL(url_string);
+    var c = url.searchParams.get("p");
+    console.log(c);*/
+
     updateList("");
 
     $(document).ready(function () {
         $('#searchbar').on('input', function () {
-            var name = $('#searchbar').val();
-
-            updateList(name);
-        });
-
-        $('#searchfilter').on('change', function () {
             var name = $('#searchbar').val();
 
             updateList(name);
@@ -53,25 +46,29 @@ $sql = new MySQLAPI($pdo);
             //AJAX type is "Post".
             type: "POST",
             //Data will be sent to "ajax.php".
-            url: "getusers.php",
+            url: "getarticles.php",
             //Data, that will be sent to "ajax.php".
             data: {
                 //Assigning value of "name" into "search" variable.
                 q: str,
-                f: $('#searchfilter').val()
+                f: $('#searchfilter').val(),
             },
             //If result found, this funtion will be called.
             success: function (html) {
                 //Assigning result to "display" div in "search.php" file.
-                $("#user-wrapper").html(html).show();
+                console.log(html);
+                $("#article_container").html(html).show();
+            },
+            failed: function (e) {
+                console.log(e);
             }
         });
     }
 </script>
 
-<table id="user-wrapper">
+<div id="article_container">
 
-</table>
+</div>
 
 </body>
 </html>

@@ -15,7 +15,6 @@ $sql = new MySQLAPI($pdo);
 
     <link rel="stylesheet" href="../users/user-wrapper.css">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <script src="../acp_src/js/table_wrapper_scroll.js"></script>
 </head>
 <body>
 
@@ -29,6 +28,7 @@ $sql = new MySQLAPI($pdo);
         <option value="seller">Verkäufer</option>
     </select>
 </div>
+<script src="../acp_src/js/table_wrapper_scroll.js"></script>
 
 
 <script>

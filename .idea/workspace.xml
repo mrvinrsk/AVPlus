@@ -19,10 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="24d9eaf7-4bb7-46a0-b3c6-e77997e721c2" name="Default Changelist" comment="- articles can now be added and listed.&#10;- categories can now be added and listed.">
-      <change afterPath="$PROJECT_DIR$/acp/acp_src/js/table_wrapper_scroll.js" afterDir="false" />
+    <list default="true" id="24d9eaf7-4bb7-46a0-b3c6-e77997e721c2" name="Default Changelist" comment="- added button for adding an user.">
+      <change afterPath="$PROJECT_DIR$/getarticles.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/index.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/acp/articles/categories/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/acp/articles/categories/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/acp/acp_src/js/table_wrapper_scroll.js" beforeDir="false" afterPath="$PROJECT_DIR$/acp/acp_src/js/table_wrapper_scroll.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/acp/acp_src/sass/formstyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/acp/acp_src/sass/formstyle.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/acp/articles/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/acp/articles/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/acp/users/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/acp/users/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/acp/users/user-wrapper.css" beforeDir="false" afterPath="$PROJECT_DIR$/acp/users/user-wrapper.css" afterDir="false" />
@@ -81,6 +85,7 @@
       <workItem from="1604911296121" duration="3104000" />
       <workItem from="1605209050595" duration="230000" />
       <workItem from="1605269270909" duration="2194000" />
+      <workItem from="1605473045559" duration="4514000" />
     </task>
     <task id="LOCAL-00001" summary="- added Article and User creation forms.">
       <created>1604655967721</created>
@@ -189,10 +194,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1293" height="285" key="GridCell.Tab.0.right/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1604613094148" />
-    <state x="596" y="374" key="NewPhpFileDialog" timestamp="1604673298390">
-      <screen x="0" y="23" width="1440" height="822" />
+    <state x="794" y="448" key="NewPhpFileDialog" timestamp="1605474336527">
+      <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="794" y="448" key="NewPhpFileDialog/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1604612160142" />
+    <state x="794" y="448" key="NewPhpFileDialog/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1605474336527" />
     <state x="596" y="374" key="NewPhpFileDialog/0.23.1440.822@0.23.1440.822" timestamp="1604673298390" />
     <state x="175" y="123" width="1098" height="722" key="SettingsEditor" timestamp="1604683030812">
       <screen x="0" y="23" width="1440" height="822" />
@@ -207,9 +212,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="883" y="238" width="965" height="712" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1604606229097" />
-    <state x="518" y="355" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604911125959">
-      <screen x="0" y="23" width="1440" height="822" />
+    <state x="691" y="424" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605473060419">
+      <screen x="0" y="0" width="1920" height="1050" />
     </state>
+    <state x="691" y="424" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1605473060419" />
     <state x="518" y="355" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.822@0.23.1440.822" timestamp="1604911125959" />
     <state x="385" y="169" width="670" height="676" key="search.everywhere.popup" timestamp="1604911145487">
       <screen x="0" y="23" width="1440" height="822" />

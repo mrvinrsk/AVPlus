@@ -11,6 +11,6 @@ Die Kunden sollen dazu zunächst anonym einkaufen können und müssen sich erst 
 
 Aktuell besteht das Projekt nur aus der Installationsseite ***/setup/index.php***, und den Formularen - bisher jedoch *ohne Funktion*.
 Als nächstes werden diese Features folgen:
-- [ ] Funktionalität der Formulare
-- [ ] Rechtesystem
-- [ ] Ausführliches Wiki zur Benutzung
+- [x] Funktionalität der Formulare
+- [x] Livesuche
+- [x] Rechtesystem

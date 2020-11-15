@@ -80,7 +80,6 @@ body, html {
   padding: 5vh 0;
   margin-bottom: 7.5vh;
   background-color: #FFF;
-  border-bottom: 1px solid #888888;
   transition-duration: 0.25s;
 }
 #searchcontainer #searchbar {
