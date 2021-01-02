@@ -44,21 +44,59 @@ if (isset($_POST['create'])) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>AVPlus | Artikel hinzufügen</title>
 
-    <link rel="stylesheet" href="../../acp_src/sass/formstyle.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="../../acp_src/sass/formstyle.css">-->
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+            crossorigin="anonymous"></script>
 </head>
 <body>
 
-<form method="post">
+<form method="post" class="row container-lg py-2 px-4 g-3 position-absolute top-50 start-50 translate-middle">
     <h1>Artikel erstellen</h1>
 
-    <input type="text" name="title" required placeholder="Produkttitel" id="title" oninput="update()" active>
-    <?php
-    if (isset($noTitle)) {
-        echo "<span class='error_msg'>Der Artikel muss einen Namen haben!</span>";
-    }
-    ?>
+    <div class="col-md-9">
+        <label for="title" class="form-label">Titel</label>
+        <input type="text" id="title" name="title" class="form-control" aria-describedby="titleHelp"
+               oninput="update()">
+        <div id="titleHelp" class="form-text">
+            Der Titel des Produktes, wie es in der Übersicht aufgelistet wird.
+        </div>
+        <?php
+        if (isset($noTitle)) {
+            echo "<span class='error_msg'>Der Artikel muss einen Namen haben!</span>";
+        }
+        ?>
+    </div>
 
-    <textarea type="text" name="description" placeholder="Beschreibe das Produkt..." id="description"></textarea>
+    <div class="col-md-3">
+        <label for="price" class="form-label">Preis</label>
+        <div class="input-group">
+            <input type="number" name="price" id="price" required value="0.00" step="0.01" class="form-control"
+                   aria-describedby="priceHelp">
+            <span class="input-group-text" id="basic-addon2">€</span>
+        </div>
+        <div id="priceHelp" class="form-text">
+            Der Verkaufspreis des Produkts.
+        </div>
+        <?php
+        if (isset($noPrice)) {
+            echo "<span class='error_msg'>Der Artikel muss einen Preis haben!</span>";
+        }
+        ?>
+    </div>
+
+    <div class="col-md-12 form-group">
+        <label for="description" class="form-label">Beschreibung</label>
+        <textarea type="text" name="description" placeholder="Beschreibe das Produkt..." id="description"
+                  aria-describedby="descriptionHelp" class="form-control" style="max-height: 25vh;"></textarea>
+        <div id="descriptionHelp" class="form-text">
+            Eine zusätzliche, ausführliche Beschreibung der Artikeleigenschaften. (Optional)
+        </div>
+    </div>
 
     <script>
         function update() {
@@ -70,62 +108,70 @@ if (isset($_POST['create'])) {
         }
     </script>
 
-    <input type="number" name="price" required value="0.00" step="0.01">
-    <?php
-    if (isset($noPrice)) {
-        echo "<span class='error_msg'>Der Artikel muss einen Preis haben!</span>";
-    }
-    ?>
+    <div class="col-md-6 form-group">
+        <label for="category" class="form-label">Kategorie</label>
+        <select name="category" id="category" class="form-select" aria-describedby="categoryHelp">
+            <option selected disabled>Auswählen...</option>
 
-    <select name="category" required>
-        <option selected disabled>Wähle eine Kategorie...</option>
+            <?php
+            $stmt = $pdo->prepare("SELECT KategorieID, Bezeichnung FROM Artikelkategorie;");
 
-        <?php
-        $stmt = $pdo->prepare("SELECT KategorieID, Bezeichnung FROM Artikelkategorie;");
+            if ($stmt->execute()) {
+                while ($row = $stmt->fetch()) { ?>
 
-        if ($stmt->execute()) {
-            while ($row = $stmt->fetch()) { ?>
+                    <option value="<?php echo $row['KategorieID']; ?>"><?php echo $row['Bezeichnung']; ?></option>
 
-                <option value="<?php echo $row['KategorieID']; ?>"><?php echo $row['Bezeichnung']; ?></option>
-
-                <?php
+                    <?php
+                }
             }
-        }
-        ?>
-    </select>
+            ?>
+        </select>
+
+        <div id="categoryHelp" class="form-text">
+            Die Produktkategorie des Produkts.
+        </div>
+    </div>
+
     <?php
     if (isset($noCategory)) {
         echo "<span class='error_msg'>Der Artikel muss eine Kategorie haben!</span>";
     }
     ?>
 
-    <select name="seller" required>
-        <option selected disabled>Wähle einen Verkäufer...</option>
+    <div class="col-md-6 form-group">
+        <label for="seller" class="form-label">Verkäufer</label>
+        <select id="seller" name="seller" class="form-select" aria-describedby="sellerHelp">
+            <option selected disabled>Auswählen...</option>
+
+            <?php
+            $rankStmt = $pdo->prepare("SELECT Kundennummer, Vorname, Nachname FROM Kunde;");
+
+            if ($rankStmt->execute()) {
+
+                echo $rankStmt->rowCount();
+
+                while ($row = $rankStmt->fetch()) { ?>
+
+                    <option value="<?php echo $row['Kundennummer']; ?>"><?php echo $row['Kundennummer'] . ' - ' . $row['Vorname'] . ' ' . $row['Nachname']; ?></option>
+
+                    <?php
+                }
+            }
+            ?>
+        </select>
+
+        <div id="sellerHelp" class="form-text">
+            Der Verkäufer des Produkts.
+        </div>
 
         <?php
-        $rankStmt = $pdo->prepare("SELECT Kundennummer, Vorname, Nachname FROM Kunde;");
-
-        if ($rankStmt->execute()) {
-
-            echo $rankStmt->rowCount();
-
-            while ($row = $rankStmt->fetch()) { ?>
-
-                <option value="<?php echo $row['Kundennummer']; ?>"><?php echo $row['Kundennummer'] . ' - ' . $row['Vorname'] . ' ' . $row['Nachname']; ?></option>
-
-                <?php
-            }
+        if (isset($noSeller)) {
+            echo "<span class='error_msg'>Dem Artikel muss ein Kunde zugewiesen sein!</span>";
         }
         ?>
-    </select>
-    <?php
-    if (isset($noSeller)) {
-        echo "<span class='error_msg'>Dem Artikel muss ein Kunde zugewiesen sein!</span>";
-    }
-    ?>
+    </div>
 
-    </br>
-    <input type="submit" value="Artikel speichern" name="create">
+    <button type="submit" class="btn btn-primary container-fluid mt-4" name="create">Speichern</button>
 </form>
 
 </body>

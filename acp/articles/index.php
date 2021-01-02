@@ -13,20 +13,34 @@ $sql = new MySQLAPI($pdo);
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>AVPlus | Artikelverwaltung</title>
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
     <link rel="stylesheet" href="../users/user-wrapper.css">
+
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+            crossorigin="anonymous"></script>
 </head>
 <body>
 
-<div id="searchcontainer">
-    <input type="text" id="searchbar" placeholder="Suchen...">
-    <select id="searchfilter">
-        <option value="id">Artikelnummer</option>
-        <option value="title">Produkttitel</option>
-        <option value="price">Preis</option>
-        <option value="category">Kategorie</option>
-        <option value="seller">Verkäufer</option>
-    </select>
+<div class="container-xl mt-4 mb-4">
+    <div id="searchcontainer" class="row">
+        <div class="col-md-9">
+            <input type="text" id="searchbar" placeholder="Suchen..." class="form-control">
+        </div>
+
+        <div class="col-md-3">
+            <select id="searchfilter" class="form-select">
+                <option value="id">Artikelnummer</option>
+                <option value="title">Produkttitel</option>
+                <option value="price">Preis</option>
+                <option value="category">Kategorie</option>
+                <option value="seller">Verkäufer</option>
+            </select>
+        </div>
+    </div>
 </div>
 <script src="../acp_src/js/table_wrapper_scroll.js"></script>
 
@@ -67,7 +81,7 @@ $sql = new MySQLAPI($pdo);
     }
 </script>
 
-<table id="user-wrapper">
+<table id="user-wrapper" class="table table-striped container-lg">
 
 </table>
 

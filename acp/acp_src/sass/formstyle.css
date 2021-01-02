@@ -1,56 +1,64 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap");
-form {
-  font-family: "Open Sans", serif;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
-  background-color: #EEE;
-  color: #343434;
-  border-radius: 2px;
-  border: 1px solid #343434;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-  padding: 3rem 5rem;
-  min-width: 50vw;
-  max-width: 75vw;
-}
-form .error_msg {
+.error_msg {
   color: #BC134E;
 }
-form h1 {
-  font-family: "Open Sans", serif;
-  font-size: 22px;
-}
-form input[type=text], form input[type=email], form input[type=password], form input[type=number], form textarea, form select, form input[type=date], form option {
-  display: block;
-  padding: 0.5rem 1.25rem;
-  color: #343434;
-  border: 1px solid #343434;
-  border-radius: 2px;
-  width: 100%;
-  margin: 1rem 0;
-  outline: none;
-  font-size: 14px;
-  transition-duration: 0.25s;
-}
-form input[type=text]:focus, form input[type=email]:focus, form input[type=password]:focus, form input[type=number]:focus, form textarea:focus, form select:focus, form input[type=date]:focus, form option:focus {
-  border-left: inset 7.5px #0e5cff;
-}
-form input[type=text]:invalid, form input[type=email]:invalid, form input[type=password]:invalid, form input[type=number]:invalid, form textarea:invalid, form select:invalid, form input[type=date]:invalid, form option:invalid {
-  border: 1px solid #BC134E;
-}
-form input[type=submit] {
-  padding: 0.25rem 0.8rem;
-  border-radius: 2px;
-  border: none;
-  border: 1px solid #343434;
-}
-form textarea {
-  resize: vertical;
-  min-width: 100%;
-  max-width: 100%;
-  min-height: 25vh;
-  max-height: 65vh;
-}
+
+/*form
+ * font-family: 'Open Sans', serif
+ * position: absolute
+ * transform: translate(-50%, -50%)
+ * top: 50%
+ * left: 50%
+ *
+ * background-color: #EEE
+ * color: #343434
+ *
+ * border-radius: 2px
+ * border: 1px solid #343434
+ *
+ * box-shadow: 0 0 10px rgba(0, 0, 0, .15)
+ *
+ * padding: 3rem 5rem
+ *
+ * min-width: 50vw
+ * max-width: 75vw
+ *
+ * h1
+ *  font-family: 'Open Sans', serif
+ *  font-size: 22px
+ *
+ * input[type=text], input[type=email], input[type=password], input[type=number], textarea, select, input[type=date], option
+ *  display: block
+ *  padding: .5rem 1.25rem
+ *  color: #343434
+ *  border: 1px solid #343434
+ *  border-radius: 2px
+ *  width: 100%
+ *  margin: 1rem 0
+ *  outline: none
+ *  font-size: 14px
+ *
+ *  transition-duration: .25s
+ *
+ *  &:focus
+ *    border-left: inset 7.5px #0e5cff
+ *
+ *  &:invalid
+ *    border: 1px solid #BC134E
+ *
+ * input[type=submit]
+ *  padding: .25rem .8rem
+ *  border-radius: 2px
+ *  border: none
+ *  border: 1px solid #343434
+ *
+ * textarea
+ *  resize: vertical
+ *
+ *  min-width: 100%
+ *  max-width: 100%
+ *
+ *  min-height: 25vh
+ *  max-height: 65vh*/
 
 /*# sourceMappingURL=formstyle.css.map */

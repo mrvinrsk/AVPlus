@@ -4,17 +4,19 @@ include_once "../../api/sql/mysql_api.php";
 $sql = new MySQLAPI($pdo);
 
 
+echo '<thead>';
 echo '<tr id="header-line">';
-echo '<th>Artikelnummer</th>';
-echo '<th>Produkt</th>';
-echo '<th>Kategorie</th>';
-echo '<th>Produktdetails</th>';
-echo '<th>Preis</th>';
-echo '<th>Verkäufer</th>';
+echo '<th scope="col">Artikelnummer</th>';
+echo '<th scope="col">Produkt</th>';
+echo '<th scope="col">Kategorie</th>';
+echo '<th scope="col">Produktdetails</th>';
+echo '<th scope="col">Preis</th>';
+echo '<th scope="col">Verkäufer</th>';
 echo '<th></th>';
 echo '</tr>';
+echo '</thead>';
 
-echo '<tr id="add"><td colspan="7">Füge <a href="add/">hier</a> einen neuen Artikel hinzu.</td></tr>';
+echo '<tr id="add"><td colspan="7" class="text-center">Füge <a href="add/">hier</a> einen neuen Artikel hinzu.</td></tr>';
 
 $query = "SELECT Artikel.Artikelnummer, Artikel.Titel, Artikel.Beschreibung, Artikel.Preis, Artikel.Kategorie, Kunde.Vorname, Kunde.Nachname, Kunde.Kundennummer, Artikelkategorie.Bezeichnung FROM Artikel, Kunde, Artikelkategorie WHERE Kunde.Kundennummer = Artikel.Verkaeufer AND Artikel.Kategorie = Artikelkategorie.KategorieID";
 
@@ -54,6 +56,9 @@ $query .= ";";
 $dataStatement = $pdo->prepare($query);
 
 if ($dataStatement->execute()) {
+
+    echo '<tbody>';
+
     while ($article = $dataStatement->fetch()) {
         $beschreibung = $article['Beschreibung'];
 
@@ -62,14 +67,16 @@ if ($dataStatement->execute()) {
         }
 
         echo "<tr>";
-        echo "<td>" . $article['Artikelnummer'] . "</td>";
+        echo "<th scope='row'>" . $article['Artikelnummer'] . "</th>";
         echo "<td>" . $article['Titel'] . "</td>";
         echo "<td>" . $article['Bezeichnung'] . "</td>";
         echo "<td>" . $beschreibung . "</td>";
         echo "<td>" . $article['Preis'] . "</td>";
-        echo "<td>" . $article['Vorname'] . " " . $article['Nachname'] . " (" . $article['Kundennummer'] . ")</td>";
+        echo "<td>" . $article['Vorname'] . " " . $article['Nachname'] . " (" . $article['Kundennummer'] . ")</td>"; // TODO: Remove Kundennummer; insert Tooltip instead
         echo "<td id='seperator'><a href='edit/index.php?id=" . $article['Artikelnummer'] . "'>Verwalten</a></td>";
         echo "</tr>";
     }
+
+    echo '</tbody>';
 }
 ?>
