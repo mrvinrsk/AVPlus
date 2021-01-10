@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#searchcontainer {
+  z-index: 99;
+  text-align: center;
+  font-family: "Open Sans", serif;
+  position: sticky;
+  width: 100%;
+  left: 50%;
+  top: 0;
+  padding: 5vh 0;
+  margin-bottom: 7.5vh;
+  background-color: #FFF;
+  transition-duration: 0.25s;
+}
+#searchcontainer #searchbar {
+  text-align: left;
+  border: 2px solid #343434;
+  padding: 0.5rem 0.9rem;
+  font-size: 18px;
+  min-width: 32.5vw;
+  outline: none;
+  transition-duration: 0.25s;
+}
+#searchcontainer #searchbar:focus {
+  border: 2px solid #0e5cff;
+  font-weight: 600;
+}
+#searchcontainer #searchfilter {
+  font-family: "Open Sans", serif;
+  border: 2px solid #343434;
+  padding: 0.5rem 0.85rem;
+  font-size: 18px;
+  outline: none;
+}
+#searchcontainer #searchfilter:focus {
+  border: 2px solid #0e5cff;
+}
+#searchcontainer option {
+  font-family: "Open Sans", serif;
+}
+
+#article_container {
+  font-family: "Open Sans", serif;
+  position: relative;
+  transform: translate(-50%, 0%);
+  left: 50%;
+  margin-top: 7.5vh;
+  min-width: 50vw;
+  max-width: 72.5vw;
+}
+#article_container .article {
+  position: relative;
+  transform: translate(-50%, 0%);
+  left: 50%;
+  margin: 1.35vh 0;
+  padding: 0.5rem 1.15rem;
+  border-radius: 10px;
+  border: 1px solid #888;
+}
+#article_container .article .article_title {
+  font-size: 20px;
+  color: #0d577f;
+}
+#article_container .article .article_description {
+  font-size: 14px;
+  font-style: italic;
+  color: #343434;
+}
+#article_container .article .article_seller {
+  font-size: 12px;
+  color: #656565;
+}
+#article_container .article a {
+  text-decoration: none;
+  color: #1D4BDE;
+}
+
+@media only screen and (max-device-width: 1000px) {
+  #article_container {
+    min-width: 85vw;
+    max-width: 95vw;
+  }
+  #article_container .article {
+    padding: 0.25rem 0.75rem;
+  }
+  #article_container .article .article_title {
+    font-size: 16px;
+  }
+  #article_container .article .article_description {
+    font-size: 12px;
+  }
+  #article_container .article .article_seller {
+    font-size: 10px;
+  }
+}
+
+/*# sourceMappingURL=index.css.map */

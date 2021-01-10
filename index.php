@@ -1,5 +1,6 @@
 <?php
 session_start();
+$start = microtime(true);
 ?>
 
 <!doctype html>
@@ -32,11 +33,6 @@ session_start();
 </div>
 
 <script>
-    /*var url_string = window.location.href; //window.location.href
-    var url = new URL(url_string);
-    var c = url.searchParams.get("p");
-    console.log(c);*/
-
     updateList("");
 
     $(document).ready(function () {
@@ -75,6 +71,16 @@ session_start();
 <div id="article_container">
 
 </div>
+
+<?php
+$end = microtime(true);
+
+printf("Seite wurde geladen in %f Sekunden.", $end - $start);
+?>
+
+<?php
+include_once "api/elements/footer.php";
+?>
 
 </body>
 </html>

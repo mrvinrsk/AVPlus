@@ -1,8 +1,8 @@
 <?php
 $servername = "localhost";
-$username = "jetbrains";
-$password = "schule_serv_avplus";
-$database = "Schule_AV";
+$username = "webshop";
+$password = "webshop_schule_serv";
+$database = "SchuleAV";
 
 try {
     $pdo = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
