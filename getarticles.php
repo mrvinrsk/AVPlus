@@ -36,15 +36,30 @@ if ($dataStatement->execute()) {
     while ($article = $dataStatement->fetch()) {
         $beschreibung = $article['Beschreibung'];
 
-        if (strlen($beschreibung) > 50) {
-            $beschreibung = substr($beschreibung, 0, 85) . " [...]";
+        $maxDescLength = 80;
+        if (strlen($beschreibung) > $maxDescLength) {
+            $beschreibung = substr($beschreibung, 0, $maxDescLength) . " [...]";
         }
 
-        echo "<div class='article'>";
-        echo "<span class='article_title'><a href='./article/?id=" . $article['Artikelnummer'] . "'>" . $article['Titel'] . "</a></span></br>";
-        echo "<span class='article_description'>" . $beschreibung . "</span></br>";
-        echo "<span class='article_seller'>Verkauft von <a href='./user/?id=" . $article['Kundennummer'] . "'>" . $article['Vorname'] . "</a></span>";
-        echo "</div>";
+        $katID = $article['Kategorie'];
+        $k = $sql->result("SELECT Bezeichnung FROM Artikelkategorie WHERE KategorieID = $katID;");
+        $kategorie = $k['Bezeichnung'];
+        ?>
+
+        <div class="card mb-2" style="">
+            <div class="card-body">
+                <h6 class="card-title"><a
+                            href="./articles/?id=<?php echo $article['Artikelnummer']; ?>"><?php echo $article['Titel']; ?></a>
+                </h6>
+                <p class="card-subtitle mb-2 text-muted"><?php echo $kategorie; ?></p>
+                <p class="card-text"><?php echo(($article['Beschreibung'] != "") ? $beschreibung : "<i class='text-muted'>Es wurde keine Beschreibung für dieses Produkt angegeben.</i>"); ?></p>
+                <!--<p class="card-text text-secondary"><?php echo number_format((float)$article['Preis'], 2, ',', '.') . " EUR"; ?></p>-->
+                <!--<a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>-->
+            </div>
+        </div>
+
+        <?php
     }
 }
 ?>

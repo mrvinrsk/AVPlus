@@ -14,7 +14,7 @@ $start = microtime(true);
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <link rel="stylesheet" href="index.css">
+    <!--<link rel="stylesheet" href="index.css">-->
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
@@ -23,13 +23,20 @@ $start = microtime(true);
 </head>
 <body>
 
-<div id="searchcontainer">
-    <input type="text" id="searchbar" class="form-control" placeholder="Suchen...">
-    <select id="searchfilter">
-        <option value="title">Produkttitel</option>
-        <option value="category">Kategorie</option>
-        <option value="seller">Verkäufer</option>
-    </select>
+<div class="container-xl mt-4 mb-4">
+    <div id="searchcontainer" class="row">
+        <div class="col-md-9">
+            <input type="text" id="searchbar" placeholder="Suchen..." class="form-control">
+        </div>
+
+        <div class="col-md-3">
+            <select id="searchfilter" class="form-select">
+                <option value="title">Produkttitel</option>
+                <option value="category">Kategorie</option>
+                <option value="seller">Verkäufer</option>
+            </select>
+        </div>
+    </div>
 </div>
 
 <script>
@@ -37,6 +44,12 @@ $start = microtime(true);
 
     $(document).ready(function () {
         $('#searchbar').on('input', function () {
+            var name = $('#searchbar').val();
+
+            updateList(name);
+        });
+
+        $('#searchfilter').on('change', function () {
             var name = $('#searchbar').val();
 
             updateList(name);
@@ -68,14 +81,14 @@ $start = microtime(true);
     }
 </script>
 
-<div id="article_container">
+<div id="article_container" class="container-lg mt-5 mt-lg-3">
 
 </div>
 
 <?php
 $end = microtime(true);
 
-printf("Seite wurde geladen in %f Sekunden.", $end - $start);
+printf("<p class='text-muted mt-3 mt-lg-2 fixed-bottom'>Seite wurde geladen in %f Sekunden.</p>", $end - $start);
 ?>
 
 <?php
