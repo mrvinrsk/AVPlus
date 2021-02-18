@@ -171,7 +171,9 @@ if (isset($_POST['create'])) {
         ?>
     </div>
 
-    <button type="submit" class="btn btn-primary container-fluid mt-4" name="create">Speichern</button>
+    <div class="col-md-12 mt-3">
+        <button type="submit" class="btn btn-primary container-fluid" name="create">Speichern</button>
+    </div>
 </form>
 
 </body>

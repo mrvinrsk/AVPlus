@@ -51,32 +51,33 @@ if (isset($_POST['create'])) {
 <form method="post" class="row container-lg py-2 px-4 g-3 position-absolute top-50 start-50 translate-middle">
     <h1>Kunden erstellen</h1>
 
-    <div class="mb-3 col-md-6">
+    <div class="col-md-6">
         <label for="vorname" class="form-label">Vorname</label>
         <input type="text" class="form-control" id="vorname" name="vorname" required active>
     </div>
-    <div class="mb-3 col-md-6">
+    <div class="col-md-6">
         <label for="nachname" class="form-label">Nachname</label>
         <input type="text" class="form-control" id="nachname" name="nachname" required>
     </div>
 
-    <div class="mb-3">
+    <div class="col-md-12">
         <label for="geburtstag" class="form-label">Geburtstag</label>
         <input type="date" id="geburtstag" name="geburtstag" class="form-control" required>
     </div>
 
-    <div class="mb-3">
+    <div class="col-md-12">
         <label for="email" class="form-label">E-Mail</label>
         <input type="email" class="form-control" id="email" name="email" required>
     </div>
 
-    <div class="mb-3">
+    <div class="col-md-12">
         <label for="passwort" class="form-label">Passwort</label>
         <input type="password" class="form-control" id="passwort" name="passwort" required>
     </div>
 
-    <div class="mb-3">
-        <select name="rank" class="form-control" required>
+    <div class="col-md-12">
+        <label for="rank" class="form-label">Nutzerrang</label>
+        <select name="rank" id="rank" class="form-control" required>
             <option selected disabled>Wähle einen Rang...</option>
 
             <?php
@@ -97,7 +98,9 @@ if (isset($_POST['create'])) {
         </select>
     </div>
 
-    <button type="submit" name="create" class="btn btn-primary container">Kunden anlegen</button>
+    <div class="col-md-12 mt-3">
+        <button type="submit" name="create" class="btn btn-primary container-fluid">Kunden anlegen</button>
+    </div>
 </form>
 
 </body>
