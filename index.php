@@ -23,7 +23,7 @@ $start = microtime(true);
 </head>
 <body>
 
-<div class="container-xl mt-4 mb-4">
+<div class="container-lg mt-3 mt-lg-5 mb-2 mb-lg-3">
     <div id="searchcontainer" class="row">
         <div class="col-md-9">
             <input type="text" id="searchbar" placeholder="Suchen..." class="form-control">
@@ -81,14 +81,14 @@ $start = microtime(true);
     }
 </script>
 
-<div id="article_container" class="container-lg mt-5 mt-lg-3">
+<div id="article_container" class="container-lg">
 
 </div>
 
 <?php
 $end = microtime(true);
 
-printf("<p class='text-muted mt-3 mt-lg-2 fixed-bottom'>Seite wurde geladen in %f Sekunden.</p>", $end - $start);
+printf("<p class='text-muted mt-3 mt-lg-4 mb-2 mb-lg-3 text-center'>Seite wurde geladen in %f Sekunden.</p>", $end - $start);
 ?>
 
 <?php

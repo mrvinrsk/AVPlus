@@ -14,3 +14,6 @@ Als nächstes werden diese Features folgen:
 - [x] Funktionalität der Formulare
 - [x] Livesuche
 - [x] Rechtesystem
+- [x] Artikelseite
+- [x] Userseite
+- [ ] 

@@ -46,7 +46,7 @@ if ($dataStatement->execute()) {
         $kategorie = $k['Bezeichnung'];
         ?>
 
-        <div class="card mb-2" style="">
+        <div class="card mb-2 bg-light text-dark">
             <div class="card-body">
                 <h6 class="card-title"><a
                             href="./articles/?id=<?php echo $article['Artikelnummer']; ?>"><?php echo $article['Titel']; ?></a>
