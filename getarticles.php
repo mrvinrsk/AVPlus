@@ -36,7 +36,7 @@ if ($dataStatement->execute()) {
     while ($article = $dataStatement->fetch()) {
         $beschreibung = $article['Beschreibung'];
 
-        $maxDescLength = 80;
+        $maxDescLength = 125;
         if (strlen($beschreibung) > $maxDescLength) {
             $beschreibung = substr($beschreibung, 0, $maxDescLength) . " [...]";
         }
@@ -46,16 +46,18 @@ if ($dataStatement->execute()) {
         $kategorie = $k['Bezeichnung'];
         ?>
 
-        <div class="card mb-2" style="">
-            <div class="card-body">
-                <h6 class="card-title"><a
-                            href="./articles/?id=<?php echo $article['Artikelnummer']; ?>"><?php echo $article['Titel']; ?></a>
-                </h6>
-                <p class="card-subtitle mb-2 text-muted"><?php echo $kategorie; ?></p>
-                <p class="card-text"><?php echo(($article['Beschreibung'] != "") ? $beschreibung : "<i class='text-muted'>Es wurde keine Beschreibung für dieses Produkt angegeben.</i>"); ?></p>
-                <!--<p class="card-text text-secondary"><?php echo number_format((float)$article['Preis'], 2, ',', '.') . " EUR"; ?></p>-->
-                <!--<a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>-->
+        <div class="card mb-2 bg-light text-dark">
+            <div class="card-body row">
+                <div class="col-9 col-md-9 col-lg-10">
+                    <h6 class="card-title"><a
+                                href="./articles/?id=<?php echo $article['Artikelnummer']; ?>"><?php echo $article['Titel']; ?></a>
+                    </h6>
+                    <p class="card-subtitle mb-2 text-muted"><?php echo $kategorie; ?></p>
+                    <p class="card-text"><?php echo(($article['Beschreibung'] != "") ? $beschreibung : "<i class='text-muted'>Der Verkäufer dieses Artikels hat keine Beschreibung angegeben.</i>"); ?></p>
+                </div>
+                <div class="col-3 col-md-3 col-lg-2">
+                    <h6 class="card-text text-right text-primary position-relative top-50 start-50 translate-middle"><?php echo number_format((float)$article['Preis'], 2, ',', '.') . " EUR"; ?></h6>
+                </div>
             </div>
         </div>
 

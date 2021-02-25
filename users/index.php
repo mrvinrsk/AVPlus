@@ -24,8 +24,16 @@ $user = $sql->result("SELECT * FROM Kunde WHERE Kundennummer = $kundennummer;");
 
 <div class="container-lg mt-3 mt-lg-5">
     <h2 class="text-primary"><?php echo $user['Vorname'] . " " . $user['Nachname']; ?></h2>
+
+    <?php
+    $rangStmt = $sql->result("SELECT Rang.Bezeichnung FROM Kunde, Rang WHERE Rang.RangID = Kunde.Rang AND Kundennummer = " . $user['Kundennummer'] . ";");
+    $rang = $rangStmt["Bezeichnung"];
+    ?>
+
     <h6 class="text-secondary">Registriert
-        seit <?php echo(($user['Registrierung'] != null ? date('d.m.Y', strtotime($user['Registrierung'])) : "<i>Unbekannt</i>")); ?></h6>
+        seit <?php echo(($user['Registrierung'] != null ? date('d.m.Y', strtotime($user['Registrierung'])) : "<i>Unbekannt</i>")); ?>
+        (<?php echo $rang; ?>)
+    </h6>
 
     <div class="mt-4 mt-lg-5">
 
@@ -56,7 +64,7 @@ $user = $sql->result("SELECT * FROM Kunde WHERE Kundennummer = $kundennummer;");
                         </h6>
                         <p class="card-subtitle mb-2 text-muted"><?php echo $kategorie; ?></p>
                         <p class="card-text"><?php echo(($article['Beschreibung'] != "") ? $beschreibung : "<i class='text-muted'>Es wurde keine Beschreibung für dieses Produkt angegeben.</i>"); ?></p>
-                        <!--<p class="card-text text-secondary"><?php echo number_format((float)$article['Preis'], 2, ',', '.') . " EUR"; ?></p>-->
+                        <!--<p class="card-text text-secondary"><?php echo number_format((float)$article['Preis'], 2, ',', '.') . "€"; ?></p>-->
                         <!--<a href="#" class="card-link">Card link</a>
                         <a href="#" class="card-link">Another link</a>-->
                     </div>

@@ -18,7 +18,7 @@
 
     <ul>
         <li>
-            <span><a href="../../acp">Adminpanel öffnen</a></span></br>
+            <span><a href="../../admin">Adminpanel öffnen</a></span></br>
             <span><a href="https://github.com/mrvinrsk/AVPlus/">Github Repository öffnen</a></span>
         </li>
     </ul>

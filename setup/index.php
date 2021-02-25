@@ -95,7 +95,7 @@ create table if not exists Artikel
 	Artikelnummer int auto_increment,
 	Verkaeufer int not null,
 	Titel varchar(64) not null,
-	Beschreibung varchar(4096) null,
+	Beschreibung varchar(8000) null,
 	Preis float not null,
 	Kategorie int null,
 	constraint Artikel_pk

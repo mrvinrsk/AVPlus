@@ -12,6 +12,8 @@ $seller = $v['Vorname'] . " " . $v['Nachname'];
 
 $k = $sql->result("SELECT * FROM Artikelkategorie WHERE KategorieID = " . $article['Kategorie'] . ";");
 $kategorie = $k['Bezeichnung'];
+
+
 ?>
 
 <!doctype html>
@@ -29,12 +31,28 @@ $kategorie = $k['Bezeichnung'];
 <body>
 
 <div class="container-lg mt-3 mt-lg-5">
-    <h1 class="text-primary"><?php echo $article['Titel']; ?></h1>
-    <h5 class="text-secondary mb-3 mb-lg-4">
-        <div style="display: inline;" class="text-primary"><?php echo $kategorie; ?></div>
-        ; Verkauf durch
-        <a class="text-primary" href="../users/?id=<?php echo $article['Verkaeufer']; ?>"><?php echo $seller; ?></a>
-    </h5>
+    <div class="row mb-5 mb-lg-4">
+        <div class="col-12 col-lg-9  mb-1 mb-lg-0">
+            <h1 class="text-primary"><?php echo $article['Titel']; ?></h1>
+            <h5 class="text-secondary mb-3 mb-lg-4">
+                <div style="display: inline;" class="text-primary"><?php echo $kategorie; ?></div>
+                ; Verkauf durch
+                <a class="text-primary" href="../users/?id=<?php echo $article['Verkaeufer']; ?>"><?php echo $seller; ?></a>
+            </h5>
+        </div>
+
+        <div class="row col-12 col-lg-3 mt-2 mt-lg-1">
+            <div class="col-12 col-lg-12">
+                <h2 class="text-primary text-center text-lg-center"><?php echo $article['Preis'] . '€'; ?></h2>
+            </div>
+
+            <div class="col-12 col-lg-12">
+                <form method="post" name="add" class="position-relative top-50 start-50 translate-middle">
+                    <button type="submit" class="btn btn-primary container-fluid">In den Warenkorb</button>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <p class="text-muted"><?php echo(($article['Beschreibung']) != "" ? $article['Beschreibung'] : "<i>Für dieses Produkt ist keine Beschreibung verfügbar. Zu genaueren Informationen versuchen Sie sich bitte im Internet über dieses Produkt zu informieren oder den Verkäufer zu kontaktieren.</i>"); ?></p>
 </div>
