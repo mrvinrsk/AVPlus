@@ -23,128 +23,130 @@ $start = microtime(true);
 </head>
 <body>
 
-<div class="page-container">
-    <div class="content-container">
-        <div id="products_title" class="text-center mt-2 mt-lg-4 mb-3 mb-lg-5">
-            <h1>AVPlus</h1>
-            <h5 class="text-secondary" style="letter-spacing: 1px; word-spacing: 4px;">Ihre - hoffentlich - erste Wahl
-                für Onlinekäufe aus Deutschland.</h5>
-        </div>
-
-        <div class="article_container">
-            <div class="container-lg mt-3 mt-lg-5 mb-2 mb-lg-3">
-                <h3 class="text-primary">Produkte</h3>
+<main role="main">
+    <div class="page-container">
+        <div class="content-container">
+            <div id="products_title" class="text-center mt-2 mt-lg-4 mb-3 mb-lg-5">
+                <h1>AVPlus</h1>
+                <h5 class="text-secondary" style="letter-spacing: 1px; word-spacing: 4px;">Ihre - hoffentlich - erste
+                    Wahl
+                    für Onlinekäufe aus Deutschland.</h5>
             </div>
 
-            <div class="container-lg mt-2 mt-lg-3 mb-2 mb-lg-3">
-                <div id="searchcontainer" class="row">
-                    <div class="col-md-9">
-                        <input type="text" id="searchbar" placeholder="Suchen..." class="form-control">
-                    </div>
+            <div class="article_container">
+                <div class="container-lg mt-3 mt-lg-5 mb-2 mb-lg-3">
+                    <h3 class="text-primary">Produkte</h3>
+                </div>
 
-                    <div class="col-md-3">
-                        <select id="searchfilter" class="form-select">
-                            <option value="title">Produkttitel</option>
-                            <option value="category">Kategorie</option>
-                            <option value="seller">Verkäufer</option>
-                        </select>
+                <div class="container-lg mt-2 mt-lg-3 mb-2 mb-lg-3">
+                    <div id="searchcontainer" class="row">
+                        <div class="col-md-9">
+                            <input type="text" id="searchbar" placeholder="Suchen..." class="form-control">
+                        </div>
+
+                        <div class="col-md-3">
+                            <select id="searchfilter" class="form-select">
+                                <option value="title">Produkttitel</option>
+                                <option value="category">Kategorie</option>
+                                <option value="seller">Verkäufer</option>
+                            </select>
+                        </div>
                     </div>
+                </div>
+
+                <script>
+                    updateList("");
+
+                    $(document).ready(function () {
+                        $('#searchbar').on('input', function () {
+                            var name = $('#searchbar').val();
+
+                            updateList(name);
+                        });
+
+                        $('#searchfilter').on('change', function () {
+                            var name = $('#searchbar').val();
+
+                            updateList(name);
+                        });
+                    });
+
+                    function updateList(str) {
+                        $.ajax({
+                            //AJAX type is "Post".
+                            type: "POST",
+                            //Data will be sent to "ajax.php".
+                            url: "getarticles.php",
+                            //Data, that will be sent to "ajax.php".
+                            data: {
+                                //Assigning value of "name" into "search" variable.
+                                q: str,
+                                f: $('#searchfilter').val(),
+                            },
+                            //If result found, this funtion will be called.
+                            success: function (html) {
+                                //Assigning result to "display" div in "search.php" file.
+                                $("#article_container").html(html).show();
+                            },
+                            failed: function (e) {
+                                console.log(e);
+                            }
+                        });
+                    }
+                </script>
+
+                <div id="article_container" class="container-lg">
+
                 </div>
             </div>
 
-            <script>
-                updateList("");
+            <div class="most_selling">
+                <div class="container-lg mt-3 mt-lg-5 mb-2 mb-lg-3">
+                    <h3 class="text-primary">Neue Verkäufer</h3>
+                </div>
 
-                $(document).ready(function () {
-                    $('#searchbar').on('input', function () {
-                        var name = $('#searchbar').val();
+                <div id="seller_container" class="container-lg">
+                    <?php
+                    include_once "api/sql/sql_account.php";
+                    include_once "api/sql/mysql_api.php";
 
-                        updateList(name);
-                    });
+                    $sql = new MySQLAPI($pdo);
+                    $sellerStmt = $pdo->prepare("SELECT Kundennummer, Vorname, Nachname FROM Kunde ORDER BY Registrierung DESC LIMIT 4;");
 
-                    $('#searchfilter').on('change', function () {
-                        var name = $('#searchbar').val();
+                    if ($sellerStmt->execute()) {
+                        while ($row = $sellerStmt->fetch()) {
+                            $products = $sql->rows("SELECT Artikelnummer FROM Artikel WHERE Verkaeufer = " . $row['Kundennummer'] . ";");
+                            ?>
 
-                        updateList(name);
-                    });
-                });
-
-                function updateList(str) {
-                    $.ajax({
-                        //AJAX type is "Post".
-                        type: "POST",
-                        //Data will be sent to "ajax.php".
-                        url: "getarticles.php",
-                        //Data, that will be sent to "ajax.php".
-                        data: {
-                            //Assigning value of "name" into "search" variable.
-                            q: str,
-                            f: $('#searchfilter').val(),
-                        },
-                        //If result found, this funtion will be called.
-                        success: function (html) {
-                            //Assigning result to "display" div in "search.php" file.
-                            $("#article_container").html(html).show();
-                        },
-                        failed: function (e) {
-                            console.log(e);
-                        }
-                    });
-                }
-            </script>
-
-            <div id="article_container" class="container-lg">
-
-            </div>
-        </div>
-
-        <div class="most_selling">
-            <div class="container-lg mt-3 mt-lg-5 mb-2 mb-lg-3">
-                <h3 class="text-primary">Neue Verkäufer</h3>
-            </div>
-
-            <div id="seller_container" class="container-lg">
-                <?php
-                include_once "api/sql/sql_account.php";
-                include_once "api/sql/mysql_api.php";
-
-                $sql = new MySQLAPI($pdo);
-                $sellerStmt = $pdo->prepare("SELECT Kundennummer, Vorname, Nachname FROM Kunde ORDER BY Registrierung DESC LIMIT 4;");
-
-                if ($sellerStmt->execute()) {
-                    while ($row = $sellerStmt->fetch()) {
-                        $products = $sql->rows("SELECT Artikelnummer FROM Artikel WHERE Verkaeufer = " . $row['Kundennummer'] . ";");
-                        ?>
-
-                        <div class="card mb-2 bg-light text-dark">
-                            <div class="card-body row">
-                                <div class="col-9 col-md-9 col-lg-10">
-                                    <h6 class="card-title"><a
-                                                href="./users/?id=<?php echo $row['Kundennummer']; ?>"><?php echo $row['Vorname'] . " " . $row['Nachname']; ?></a>
-                                    </h6>
-                                    <p class="card-subtitle mb-2 text-muted"><?php echo $products . " " . ($products == 1 ? "Produkt" : "Produkte"); ?></p>
+                            <div class="card mb-2 bg-light text-dark">
+                                <div class="card-body row">
+                                    <div class="col-9 col-md-9 col-lg-10">
+                                        <h6 class="card-title"><a
+                                                    href="./users/?id=<?php echo $row['Kundennummer']; ?>"><?php echo $row['Vorname'] . " " . $row['Nachname']; ?></a>
+                                        </h6>
+                                        <p class="card-subtitle mb-2 text-muted"><?php echo $products . " " . ($products == 1 ? "Produkt" : "Produkte"); ?></p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <?php
+                            <?php
+                        }
                     }
-                }
-                ?>
+                    ?>
+                </div>
             </div>
+
+            <?php
+            $end = microtime(true);
+
+            printf("<p class='text-muted mt-3 mt-lg-4 mb-2 mb-lg-3 text-center'>Seite wurde geladen in %f Sekunden.</p>", $end - $start);
+            ?>
         </div>
-
-        <?php
-        $end = microtime(true);
-
-        printf("<p class='text-muted mt-3 mt-lg-4 mb-2 mb-lg-3 text-center'>Seite wurde geladen in %f Sekunden.</p>", $end - $start);
-        ?>
     </div>
-
-    <?php
-    include_once "api/elements/footer.php";
-    ?>
-</div>
+</main>
+<?php
+include_once "api/elements/footer.php";
+?>
 
 </body>
 </html>

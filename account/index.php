@@ -1,11 +1,24 @@
 <?php
 session_start();
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+include_once "../api/sql/sql_account.php";
+include_once "../api/sql/mysql_api.php";
 include_once "../api/functionality/site_api.php";
 
 if (!isLoggedIn()) {
     header_remove();
-    header("Location: auth/login/");
+    header("Location: ./auth/login/");
 }
+
+$sql = new MySQLAPI($pdo);
+$sc = $_SESSION['login'];
+$kdnr = explode("_", $sc)[0];
+
+$user = $sql->result("SELECT * FROM Kunde WHERE Kundennummer = $kdnr;");
 ?>
 
 <!doctype html>
@@ -28,6 +41,48 @@ if (!isLoggedIn()) {
 </head>
 <body>
 
+<style>
+    .bcard {
+        transition-duration: .25s;
+    }
+
+    .bcard:hover {
+        transform: scale(1.02);
+
+        color: #0d6efd;
+        border: 1px solid #0d6efd !important;
+
+        box-shadow: 1px 1px 10px rgba(0, 0, 0, .2);
+
+        cursor: pointer;
+    }
+</style>
+
+<div class="container-lg mt-3 mt-lg-5">
+    <div class="essential_informations mb-5">
+        <h1 class="text-primary"><?php echo $user['Vorname'] . " " . $user['Nachname']; ?></h1>
+
+        <?php
+        // RANG
+        $user = $sql->result("SELECT Rang.Bezeichnung FROM Rang, Kunde WHERE Kundennummer = $kdnr AND Rang.RangID = Kunde.Rang;");
+        $rang = $user['Bezeichnung'];
+        ?>
+
+        <h6 class="text-secondary"><?php echo $rang; ?></h6>
+    </div>
+
+    <div class="container px-4">
+        <div class="row gx-5">
+            <div class="col-12 col-lg-6 mb-2 mb-lg-0">
+                <div class="p-3 border bg-light bcard text-center text-decoration-none">Userdaten ändern</div>
+            </div>
+
+            <div class="col-12 col-lg-6 mb-2 mb-lg-0">
+                <div class="p-3 border bg-light bcard text-center text-decoration-none">Produkte</div>
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>

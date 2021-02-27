@@ -3,6 +3,7 @@ include_once "../../../api/sql/sql_account.php";
 include_once "../../../api/sql/mysql_api.php";
 $sql = new MySQLAPI($pdo);
 
+session_start();
 if (isset($_POST['create'])) {
     $vorname = $_POST['vorname'];
     $nachname = $_POST['nachname'];
@@ -10,7 +11,7 @@ if (isset($_POST['create'])) {
 
     $mail = $_POST['email'];
     $pw = $_POST['passwort'];
-    $hashed_password = hash('sha256', $pw);
+    $hashed_password = password_hash($pw, CRYPT_MD5);
     $registerDate = date("Y-m-d");
 
     $rank = $_POST['rank'];

@@ -36,7 +36,7 @@ if ($dataStatement->execute()) {
     while ($article = $dataStatement->fetch()) {
         $beschreibung = $article['Beschreibung'];
 
-        $maxDescLength = 125;
+        $maxDescLength = 200;
         if (strlen($beschreibung) > $maxDescLength) {
             $beschreibung = substr($beschreibung, 0, $maxDescLength) . " [...]";
         }
@@ -56,7 +56,7 @@ if ($dataStatement->execute()) {
                     <p class="card-text"><?php echo(($article['Beschreibung'] != "") ? $beschreibung : "<i class='text-muted'>Der Verkäufer dieses Artikels hat keine Beschreibung angegeben.</i>"); ?></p>
                 </div>
                 <div class="col-3 col-md-3 col-lg-2">
-                    <h6 class="card-text text-right text-primary position-relative top-50 start-50 translate-middle"><?php echo number_format((float)$article['Preis'], 2, ',', '.') . " EUR"; ?></h6>
+                    <h6 class="card-text text-right text-primary position-relative top-50 start-50 translate-middle"><?php echo number_format((float)$article['Preis'], 2, ',', '.') . "€"; ?></h6>
                 </div>
             </div>
         </div>
