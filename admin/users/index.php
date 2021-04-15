@@ -83,5 +83,9 @@ $sql = new MySQLAPI($pdo);
 
 </table>
 
+<div class="container-lg">
+    <a href="export.php" class="btn btn-primary">Export als CSV</a>
+</div>
+
 </body>
 </html>

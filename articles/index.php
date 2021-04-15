@@ -14,6 +14,22 @@ $k = $sql->result("SELECT * FROM Artikelkategorie WHERE KategorieID = " . $artic
 $kategorie = $k['Bezeichnung'];
 
 
+if (isset($_POST['buy'])) {
+    $amount = $_POST['a'];
+    $wk = ((isset($_SESSION['wk'])) ? $_SESSION['wk'] : array());
+
+    array_push($wk, $artikelnummer, $amount);
+    $_SESSION['wk'] = $wk;
+
+}
+
+if (isset($_SESSION['wk'])) {
+    foreach ($_SESSION['wk'] as $item) {
+        echo 'Artikelnummer: ' . $item[0];
+        echo 'Menge: ' . $item[1];
+        echo '';
+    }
+}
 ?>
 
 <!doctype html>
@@ -48,7 +64,11 @@ $kategorie = $k['Bezeichnung'];
 
             <div class="col-12 col-lg-12">
                 <form method="post" name="add" class="position-relative top-50 start-50 translate-middle">
-                    <button type="submit" class="btn btn-primary container-fluid">In den Warenkorb</button>
+                    <div class="input-group">
+                        <button type="submit" class="btn btn-primary" name="buy">In den Warenkorb</button>
+                        <input type="number" class="form-control text-center" name="a" value="<?php echo((isset($_POST['a']) ? $_POST['a'] : 1)); ?>"/>
+                        <span class="input-group-text" id="basic-addon2">x</span>
+                    </div>
                 </form>
             </div>
         </div>

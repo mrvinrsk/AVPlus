@@ -28,9 +28,7 @@ $start = microtime(true);
         <div class="content-container">
             <div id="products_title" class="text-center mt-2 mt-lg-4 mb-3 mb-lg-5">
                 <h1>AVPlus</h1>
-                <h5 class="text-secondary" style="letter-spacing: 1px; word-spacing: 4px;">Ihre - hoffentlich - erste
-                    Wahl
-                    für Onlinekäufe aus Deutschland.</h5>
+                <h5 class="text-secondary" style="letter-spacing: 1px; word-spacing: 4px;">Ihre - hoffentlich - erste Wahl für Onlinekäufe aus Deutschland.</h5>
             </div>
 
             <div class="article_container">
