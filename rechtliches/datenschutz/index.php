@@ -12,6 +12,10 @@
 </head>
 <body>
 
+<?php
+include_once "../../api/elements/navbar.php";
+?>
+
 <main role="main">
     <div class="container-lg mt-2 mt-lg-5">
         <h1>Datenschutzerklärung</h1>

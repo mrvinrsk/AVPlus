@@ -92,57 +92,63 @@ if (isset($_POST['register'])) {
 </head>
 <body>
 
-<form method="post" class="container-lg position-absolute top-50 start-50 translate-middle row">
-    <div id="title_div" class="mb-2 mb-lg-3">
-        <h3 class="text-primary">Registrieren</h3>
-        <p class="text-secondary">Lege dir einen Account an und shoppe drauf los.</p>
-    </div>
+<?php
+include_once "../../../api/elements/navbar.php";
+?>
 
-    <div class="col-md-6 mb-2 mb-lg-4">
-        <label for="vorname" class="form-label">Vorname</label>
-        <input type="text" class="form-control" id="vorname" name="vorname"
-               value="<?php echo((isset($_POST['vorname']) ? $_POST['vorname'] : '')); ?>">
-    </div>
-    <div class="col-md-6 mb-2 mb-lg-4">
-        <label for="nachname" class="form-label">Nachname</label>
-        <input type="text" class="form-control" id="nachname" name="nachname"
-               value="<?php echo((isset($_POST['nachname']) ? $_POST['nachname'] : '')); ?>">
-    </div>
+<main role="main">
+    <form method="post" class="container-lg mt-3 mt-lg-5">
+        <div id="title_div" class="mb-2 mb-lg-3">
+            <h3 class="text-primary">Registrieren</h3>
+            <p class="text-secondary">Lege dir einen Account an und shoppe drauf los.</p>
+        </div>
 
-    <div class="col-md-6 mb-2 mb-lg-4">
-        <label for="mail" class="form-label">E-Mail Adresse</label>
-        <input type="email" class="form-control" id="mail" name="mail"
-               value="<?php echo((isset($_POST['mail']) ? $_POST['mail'] : '')); ?>">
-    </div>
-    <div class="col-md-6 mb-2 mb-lg-4">
-        <label for="mail_repeat" class="form-label">E-Mail Adresse bestätigen</label>
-        <input type="email" class="form-control" id="mail_repeat" name="mail_repeat"
-               value="<?php echo((isset($_POST['mail_repeat']) ? $_POST['mail_repeat'] : '')); ?>">
-    </div>
+        <div class="col-md-6 mb-2 mb-lg-4">
+            <label for="vorname" class="form-label">Vorname</label>
+            <input type="text" class="form-control" id="vorname" name="vorname"
+                   value="<?php echo((isset($_POST['vorname']) ? $_POST['vorname'] : '')); ?>">
+        </div>
+        <div class="col-md-6 mb-2 mb-lg-4">
+            <label for="nachname" class="form-label">Nachname</label>
+            <input type="text" class="form-control" id="nachname" name="nachname"
+                   value="<?php echo((isset($_POST['nachname']) ? $_POST['nachname'] : '')); ?>">
+        </div>
+
+        <div class="col-md-6 mb-2 mb-lg-4">
+            <label for="mail" class="form-label">E-Mail Adresse</label>
+            <input type="email" class="form-control" id="mail" name="mail"
+                   value="<?php echo((isset($_POST['mail']) ? $_POST['mail'] : '')); ?>">
+        </div>
+        <div class="col-md-6 mb-2 mb-lg-4">
+            <label for="mail_repeat" class="form-label">E-Mail Adresse bestätigen</label>
+            <input type="email" class="form-control" id="mail_repeat" name="mail_repeat"
+                   value="<?php echo((isset($_POST['mail_repeat']) ? $_POST['mail_repeat'] : '')); ?>">
+        </div>
 
 
-    <div class="col-md-6 mb-2 mb-lg-4">
-        <label for="pw" class="form-label">Passwort</label>
-        <input type="password" class="form-control" id="pw" name="pw">
-    </div>
-    <div class="col-md-6 mb-2 mb-lg-4">
-        <label for="pw_repeat" class="form-label">Passwort bestätigen</label>
-        <input type="password" class="form-control" id="pw_repeat" name="pw_repeat">
-    </div>
+        <div class="col-md-6 mb-2 mb-lg-4">
+            <label for="pw" class="form-label">Passwort</label>
+            <input type="password" class="form-control" id="pw" name="pw">
+        </div>
+        <div class="col-md-6 mb-2 mb-lg-4">
+            <label for="pw_repeat" class="form-label">Passwort bestätigen</label>
+            <input type="password" class="form-control" id="pw_repeat" name="pw_repeat">
+        </div>
 
-    <div class="col-md-12 mb-2 mb-lg-4">
-        <label for="bday" class="form-label">Geburtsdatum</label>
-        <input type="date" class="form-control" id="bday" name="bday">
-    </div>
+        <div class="col-md-12 mb-2 mb-lg-4">
+            <label for="bday" class="form-label">Geburtsdatum</label>
+            <input type="date" class="form-control" id="bday" name="bday">
+        </div>
 
-    <div class="col-12">
-        <button type="submit" name="register" class="btn btn-primary container-fluid">Login</button>
-    </div>
+        <div class="col-12">
+            <button type="submit" name="register" class="btn btn-primary container-fluid">Login</button>
+        </div>
 
-    <hr class="mt-4 mb-4" style="border-width: 2px;"/>
+        <hr class="mt-4 mb-4" style="border-width: 2px;"/>
 
-    <p class="text-center">Du hast schon ein Konto? <a href="../login/">Melde dich an.</a></p>
-</form>
+        <p class="text-center">Du hast schon ein Konto? <a href="../login/">Melde dich an.</a></p>
+    </form>
+</main>
 
 </body>
 </html>

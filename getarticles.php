@@ -56,7 +56,7 @@ if ($dataStatement->execute()) {
                     <p class="card-text"><?php echo(($article['Beschreibung'] != "") ? $beschreibung : "<i class='text-muted'>Der Verkäufer dieses Artikels hat keine Beschreibung angegeben.</i>"); ?></p>
                 </div>
                 <div class="col-3 col-md-3 col-lg-2">
-                    <h6 class="card-text text-right text-primary position-relative top-50 start-50 translate-middle"><?php echo number_format((float)$article['Preis'], 2, ',', '.') . "€"; ?></h6>
+                    <p class="card-text text-right text-end text-primary position-relative top-50 start-50 translate-middle h6"><?php echo number_format((float)$article['Preis'], 2, ',', '.') . "€"; ?></p>
                 </div>
             </div>
         </div>

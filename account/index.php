@@ -58,7 +58,11 @@ $user = $sql->result("SELECT * FROM Kunde WHERE Kundennummer = $kdnr;");
     }
 </style>
 
-<div class="container-lg mt-3 mt-lg-5">
+<?php
+include_once "../api/elements/navbar.php";
+?>
+
+<main role="main" class="container-lg mt-3 mt-lg-5">
     <div class="essential_informations mb-5">
         <h1 class="text-primary"><?php echo $user['Vorname'] . " " . $user['Nachname']; ?></h1>
 
@@ -82,7 +86,7 @@ $user = $sql->result("SELECT * FROM Kunde WHERE Kundennummer = $kdnr;");
             </div>
         </div>
     </div>
-</div>
+</main>
 
 </body>
 </html>

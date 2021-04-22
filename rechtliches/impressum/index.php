@@ -14,7 +14,11 @@
 </head>
 <body>
 
-<div class='container-lg mt-2 mt-lg-5'>
+<?php
+include_once "../../api/elements/navbar.php";
+?>
+
+<main role="main" class='container-lg mt-2 mt-lg-5'>
     <h1>Impressum</h1>
     <p>Angaben gemäß § 5 TMG</p>
     <p>Marvin Roßkothen <br>
@@ -55,7 +59,7 @@
         Die Betreiber der Seiten behalten sich ausdrücklich rechtliche Schritte im Falle der unverlangten Zusendung von
         Werbeinformationen, etwa durch Spam-Mails, vor.<br>
     </p>
-</div>
+</main>
 
 <?php
 include_once "../../api/elements/footer.php";

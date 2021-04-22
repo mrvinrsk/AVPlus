@@ -66,30 +66,36 @@ if (isset($_POST['login'])) {
 </head>
 <body>
 
-<form method="post" class="container-lg position-absolute top-50 start-50 translate-middle row">
-    <div id="title_div" class="mb-2 mb-lg-4">
-        <h3 class="text-primary">Einloggen</h3>
-        <p class="text-secondary">Logge dich in deinen Account ein.</p>
-    </div>
+<?php
+include_once "../../../api/elements/navbar.php";
+?>
 
-    <div class="mb-3">
-        <label for="mail" class="form-label">E-Mail Adresse</label>
-        <input type="email" class="form-control" id="mail" name="mail"
-               value="<?php echo((isset($_POST['mail']) ? $_POST['mail'] : '')); ?>">
-    </div>
-    <div class="mb-3">
-        <label for="pw" class="form-label">Passwort</label>
-        <input type="password" class="form-control" id="pw" name="pw">
-    </div>
+<main role="main">
+    <form method="post" class="container-lg mt-3 mt-lg-5">
+        <div id="title_div" class="mb-2 mb-lg-4">
+            <h3 class="text-primary">Einloggen</h3>
+            <p class="text-secondary">Logge dich in deinen Account ein.</p>
+        </div>
 
-    <div class="col-12">
-        <button type="submit" name="login" class="btn btn-primary container-fluid">Login</button>
-    </div>
+        <div class="mb-3">
+            <label for="mail" class="form-label">E-Mail Adresse</label>
+            <input type="email" class="form-control" id="mail" name="mail"
+                   value="<?php echo((isset($_POST['mail']) ? $_POST['mail'] : '')); ?>">
+        </div>
+        <div class="mb-3">
+            <label for="pw" class="form-label">Passwort</label>
+            <input type="password" class="form-control" id="pw" name="pw">
+        </div>
 
-    <hr class="mt-4 mb-4" style="border-width: 2px;"/>
+        <div class="col-12">
+            <button type="submit" name="login" class="btn btn-primary container-fluid">Login</button>
+        </div>
 
-    <p class="text-center">Du hast noch kein Konto? <a href="../register/">Erstell eins.</a></p>
-</form>
+        <hr class="mt-4 mb-4" style="border-width: 2px;"/>
+
+        <p class="text-center">Du hast noch kein Konto? <a href="../register/">Erstelle eins.</a></p>
+    </form>
+</main>
 
 </body>
 </html>

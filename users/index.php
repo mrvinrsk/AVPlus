@@ -22,7 +22,11 @@ $user = $sql->result("SELECT * FROM Kunde WHERE Kundennummer = $kundennummer;");
 </head>
 <body>
 
-<div class="container-lg mt-3 mt-lg-5">
+<?php
+include_once "../api/elements/navbar.php";
+?>
+
+<main role="main" class="container-lg mt-3 mt-lg-5">
     <h2 class="text-primary"><?php echo $user['Vorname'] . " " . $user['Nachname']; ?></h2>
 
     <?php
@@ -76,7 +80,7 @@ $user = $sql->result("SELECT * FROM Kunde WHERE Kundennummer = $kundennummer;");
         ?>
 
     </div>
-</div>
+</main>
 
 </body>
 </html>
