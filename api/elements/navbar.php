@@ -58,12 +58,8 @@ if (!isset($_SESSION)) {
                             ?>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item text-light" href="account/">Account</a></li>
-                            <li><a class="dropdown-item text-light" href="account/tickets/">Tickets</a></li>
-                            <li><a class="dropdown-item text-light" href="bereich/sponsoring/antrag/">Anträge</a></li>
-                            <li><a class="dropdown-item text-light" href="../../admin/">Adminpage</a></li>
-                            <!-- TODO:  Nur wenn man im team ist-->
-                            <li><a class="dropdown-item text-light" href="account/logout/">Abmelden</a></li>
+                            <li><a class="dropdown-item text-light" href="/account/">Dashboard</a></li>
+                            <li><a class="dropdown-item text-light" href="/admin/">Administration</a></li>
                         </ul>
                     </li>
                     <?php

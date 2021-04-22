@@ -96,8 +96,8 @@ if (isset($_POST['register'])) {
 include_once "../../../api/elements/navbar.php";
 ?>
 
-<main role="main">
-    <form method="post" class="container-lg mt-3 mt-lg-5">
+<main role="main" class="container-lg">
+    <form method="post" class="mt-3 mt-lg-5 row">
         <div id="title_div" class="mb-2 mb-lg-3">
             <h3 class="text-primary">Registrieren</h3>
             <p class="text-secondary">Lege dir einen Account an und shoppe drauf los.</p>
@@ -146,9 +146,13 @@ include_once "../../../api/elements/navbar.php";
 
         <hr class="mt-4 mb-4" style="border-width: 2px;"/>
 
-        <p class="text-center">Du hast schon ein Konto? <a href="../login/">Melde dich an.</a></p>
+        <p class="text-center">Du hast schon ein Konto? <a href="/account/auth/login/">Melde dich an.</a></p>
     </form>
 </main>
+
+<?php
+include_once "../../../api/elements/footer.php";
+?>
 
 </body>
 </html>

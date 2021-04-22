@@ -26,13 +26,14 @@ if (isset($_POST['login'])) {
 
         if ($usersFound >= 1) {
             if (password_verify($pw, $hashPW)) {
-                $user = $sql->result("SELECT Kunde.Kundennummer, Kunde.Vorname, Kunde.Nachname FROM Kunde, Login WHERE Login.Mail = '$mail' AND Kunde.Kundennummer = Login.Kundennummer;");
+                $user = $sql->result("SELECT Kunde.Kundennummer, Kunde.Vorname, Kunde.Nachname, Login.Mail FROM Kunde, Login WHERE Login.Mail = '$mail' AND Kunde.Kundennummer = Login.Kundennummer;");
                 $id = $user['Kundennummer'];
                 $vorname = $user['Vorname'];
                 $nachname = $user['Nachname'];
 
                 $sessstr = $id . "_" . $vorname . "_" . $nachname;
                 $_SESSION['login'] = $sessstr;
+                $_SESSION['email'] = $user['Mail'];
 
                 header_remove();
                 header("Location: ../../");
@@ -93,9 +94,13 @@ include_once "../../../api/elements/navbar.php";
 
         <hr class="mt-4 mb-4" style="border-width: 2px;"/>
 
-        <p class="text-center">Du hast noch kein Konto? <a href="../register/">Erstelle eins.</a></p>
+        <p class="text-center">Du hast noch kein Konto? <a href="/account/auth/register/">Erstelle eins.</a></p>
     </form>
 </main>
+
+<?php
+include_once "../../../api/elements/footer.php";
+?>
 
 </body>
 </html>

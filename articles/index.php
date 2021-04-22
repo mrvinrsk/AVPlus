@@ -73,5 +73,9 @@ include_once "../api/elements/navbar.php";
     <p class="text-muted"><?php echo(($article['Beschreibung']) != "" ? $article['Beschreibung'] : "<i>Für dieses Produkt ist keine Beschreibung verfügbar. Zu genaueren Informationen versuchen Sie sich bitte im Internet über dieses Produkt zu informieren oder den Verkäufer zu kontaktieren.</i>"); ?></p>
 </main>
 
+<?php
+include_once "../api/elements/footer.php";
+?>
+
 </body>
 </html>

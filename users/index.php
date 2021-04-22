@@ -82,5 +82,9 @@ include_once "../api/elements/navbar.php";
     </div>
 </main>
 
+<?php
+include_once "../api/elements/footer.php";
+?>
+
 </body>
 </html>
