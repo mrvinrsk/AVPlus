@@ -34,21 +34,22 @@ if (!isset($_SESSION)) {
                 if (!isset($_SESSION['login'])) {
                     ?>
                     <li class="nav-item dropdown float-end">
-                        <a class="nav-link dropdown-toggle text-light bg-hover-primary borderradius-1" href="#"
+                        <a class="nav-link dropdown-toggle text-light bg-hover-primary borderradius-1"
                            id="navbarDropdown"
                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Account
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item text-light" href="account/auth/login/">Einloggen</a></li>
-                            <li><a class="dropdown-item text-light" href="account/auth/register/">Registrieren</a></li>
+                            <li><a class="dropdown-item text-light" href="/cart/">Warenkorb</a></li>
+                            <li><a class="dropdown-item text-light" href="/account/auth/login/">Einloggen</a></li>
+                            <li><a class="dropdown-item text-light" href="/account/auth/register/">Registrieren</a></li>
                         </ul>
                     </li>
                     <?php
                 } else {
                     ?>
                     <li class="nav-item dropdown float-end">
-                        <a class="nav-link dropdown-toggle text-light bg-hover-primary borderradius-1" href="#"
+                        <a class="nav-link dropdown-toggle text-light bg-hover-primary borderradius-1"
                            id="navbarDropdown"
                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <?php
@@ -58,8 +59,8 @@ if (!isset($_SESSION)) {
                             ?>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item text-light" href="/account/">Dashboard</a></li>
-                            <li><a class="dropdown-item text-light" href="/admin/">Administration</a></li>
+                            <li><a class="dropdown-item text-light" href="/cart/">Warenkorb</a></li>
+                            <li><a class="dropdown-item text-light" href="/admin/">Abmelden</a></li>
                         </ul>
                     </li>
                     <?php

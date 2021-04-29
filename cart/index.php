@@ -4,6 +4,8 @@ $wk = $_SESSION['wk'];
 
 require_once "../api/sql/sql_account.php";
 require_once "../api/sql/mysql_api.php";
+include_once "../api/functionality/site_api.php";
+
 $sql = new MySQLAPI($pdo);
 
 if (isset($_REQUEST['artnr'])) {
@@ -16,8 +18,6 @@ if (isset($_REQUEST['artnr'])) {
     } else if (isset($_REQUEST['remove'])) {
         $add = false;
     }
-
-    include_once "../api/functionality/site_api.php";
 
     $wk = addToCart($wk, $articlenr, 1, $add);
     $_SESSION['wk'] = $wk;
@@ -67,8 +67,6 @@ include_once "../api/elements/navbar.php";
 
     <div id="articles" class="mt-2 mt-lg-4">
         <?php
-        $price = 0;
-
         if (count($wk) > 0) {
             foreach ($wk as $wkItem) {
 
@@ -93,8 +91,6 @@ include_once "../api/elements/navbar.php";
                         <?php
                         $aprice = ($amount * $article['Preis']);
                         echo number_format(((float)$aprice), 2, ',', '.') . "€";
-
-                        $price += $aprice;
                         ?>
                     </div>
                 </form>
@@ -121,11 +117,22 @@ include_once "../api/elements/navbar.php";
             <hr/>
 
             <?php
-            echo "<h3>Total: <g class='text-primary'>" . number_format(((float)$price), 2, ',', '.') . "€</g></h3>";
+            echo "<h3>Total: <g class='text-primary'>" . number_format(((float)getCartTotal($wk, $sql)), 2, ',', '.') . "€</g></h3>";
             ?>
+
+            <hr/>
+
+            <form method="post" action="/cart/buy/index.php">
+                <input type="hidden" name="total" value="<?php echo $price; ?>">
+                <button type="submit" class="btn btn-success mt-2 container-fluid"><i class="bi bi-cash-stack"></i> Zur Kasse</button>
+            </form>
         </div>
     </div>
 </main>
+
+<?php
+include_once "../api/elements/footer.php";
+?>
 
 </body>
 </html>

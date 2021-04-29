@@ -48,3 +48,20 @@ function addToCart($wk, $articleID, $amount, $plus)
 
     return $wk;
 }
+
+function getCartTotal($wk, $sql)
+{
+    $price = 0;
+
+    if (count($wk) > 0) {
+        foreach ($wk as $wkItem) {
+            $article = $sql->result("SELECT * FROM Artikel WHERE Artikelnummer = " . $wkItem[0] . ";");
+            $amount = $wkItem[1];
+
+            $aprice = ($amount * $article['Preis']);
+            $price += $aprice;
+        }
+    }
+
+    return $price;
+}

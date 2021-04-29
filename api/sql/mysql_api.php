@@ -34,6 +34,9 @@ class MySQLAPI
         return $rows;
     }
 
+    public function lastID() {
+        return $this->connection->lastInsertId();
+    }
 }
 
 ?>

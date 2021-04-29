@@ -32,6 +32,8 @@ if (isset($_POST['login'])) {
                 $nachname = $user['Nachname'];
 
                 $sessstr = $id . "_" . $vorname . "_" . $nachname;
+
+                $_SESSION['user'] = $id;
                 $_SESSION['login'] = $sessstr;
                 $_SESSION['email'] = $user['Mail'];
 

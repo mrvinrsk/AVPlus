@@ -109,6 +109,37 @@ create table if not exists Artikel
 );
 ");
 
+$sql->execute("
+create table if not exists Bestellung(
+    RechnungID int auto_increment,
+    Kaeufer int,
+    Datum date,
+    Total float(10, 2),
+    constraint Bestellung_Pk
+		primary key (RechnungID),
+    constraint Bestellung_Kunde_fk
+		foreign key (Kaeufer) references Kunde (Kundennummer)
+			on update cascade on delete cascade
+);
+");
+
+$sql->execute("
+create table if not exists Posten(
+    Rechnung int,
+    Artikel int,
+    Einzelpreis float(10, 2),
+    Menge int,
+    constraint Artikel_pk
+		primary key (Rechnung, Artikel),
+    constraint Posten_Bestellung_fk
+		foreign key (Rechnung) references Bestellung (RechnungID)
+			on update cascade on delete cascade,
+    constraint Posten_Artikel_fk
+		foreign key (Artikel) references Artikel (Artikelnummer)
+			on update cascade on delete cascade
+);
+");
+
 
 header_remove();
 header('Location: ./success/');
