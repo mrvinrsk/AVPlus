@@ -71,7 +71,8 @@ if (isset($_POST['buy'])) {
             $sql->execute("INSERT INTO Posten(Rechnung, Artikel, Einzelpreis, Menge) VALUES($bestellung, $artikelnummer, $einzelpreis, $menge);");
         }
 
-        unset($wk);
+        unset($_SESSION['wk']);
+
 
         $_SESSION['rechnung'] = $bestellung;
         header("Location: /cart/buy/success/");

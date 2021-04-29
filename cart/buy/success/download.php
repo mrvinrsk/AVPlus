@@ -1,8 +1,8 @@
 <?php
+session_start();
 function rechnung($rechnungsnr)
 {
     ob_start();
-    session_start();
     include_once "Rechnung.php";
     include_once("../../../api/sql/sql_account.php");
 
@@ -52,5 +52,5 @@ function rechnung($rechnungsnr)
     ob_end_flush();
 }
 
-rechnung(6);
+rechnung($_SESSION['rechnung']);
 ?>
